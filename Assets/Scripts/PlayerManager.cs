@@ -9,6 +9,9 @@ public class PlayerManager : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.instance.gameOver)
+            return;
+
         // If holding cat, move cat to mouse position
         if (holding == true)
         {

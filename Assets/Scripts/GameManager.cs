@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
 
     float catCooldown = 1f;
 
-    bool gameOver = false;
+    public bool gameOver = false;
     
     void Start()
     {

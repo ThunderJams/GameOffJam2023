@@ -25,6 +25,9 @@ public class CatCannon : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.instance.gameOver)
+            return;
+
         if (DebugMenu.instance.cannonMove)
         {
             if ((cannon.transform.rotation.eulerAngles.z < 180 && cannon.transform.rotation.eulerAngles.z >= cannonLimit && Mathf.Sign(cannonHinge.motor.motorSpeed) == -1) || 
