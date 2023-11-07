@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] List<GameObject> cats;
     [SerializeField] GameObject catometerBar;
     [SerializeField] GameObject gameOverText;
+    [SerializeField] GameObject pauseMenu;
 
     Slider catometerSlider;
 
@@ -38,6 +39,9 @@ public class GameManager : MonoBehaviour
     public bool gameOver = false;
 
     int round = 1;
+
+    bool paused = false;
+
     
     void Start()
     {
@@ -67,6 +71,10 @@ public class GameManager : MonoBehaviour
         {
             FireCat();
             catCooldown = 5f;
+        }
+
+        if (Input.GetButtonDown("Pause")){
+            PauseGame();
         }
     }
 
@@ -103,5 +111,17 @@ public class GameManager : MonoBehaviour
     {
         gameOver = true;
         gameOverText.SetActive(true);
+    }
+
+    void PauseGame(){
+        if (paused){
+            Time.timeScale = 1;
+            paused = false;
+        }
+        else{
+            Time.timeScale = 0;
+            paused = true;
+        }
+        pauseMenu.SetActive(paused);
     }
 }
