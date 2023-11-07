@@ -315,6 +315,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1908015513}
     - target: {fileID: 430027321342823278, guid: d72d9ba55018fff48a2af6d401324864, type: 3}
+      propertyPath: catometerBar
+      value: 
+      objectReference: {fileID: 1908015513}
+    - target: {fileID: 430027321342823278, guid: d72d9ba55018fff48a2af6d401324864, type: 3}
       propertyPath: gameOverText
       value: 
       objectReference: {fileID: 95942448}
@@ -458,10 +462,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3960948522210822778, guid: 1c5157e92cbf01145865df2e16186f9c, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3960948522210822778, guid: 1c5157e92cbf01145865df2e16186f9c, type: 3}
-      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5538725192481489079, guid: 1c5157e92cbf01145865df2e16186f9c, type: 3}

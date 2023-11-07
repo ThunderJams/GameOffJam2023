@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -25,16 +26,18 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject catCannon;
     [SerializeField] GameObject[] catTypes;
     [SerializeField] List<GameObject> cats;
-    [SerializeField] GameObject healthBar;
+    [SerializeField] GameObject catometerBar;
     [SerializeField] GameObject gameOverText;
 
-    Slider healthSlider;
+    Slider catometerSlider;
 
-    float towerHealth = 100f;
+    float catometer = 0f;
 
     float catCooldown = 1f;
 
     public bool gameOver = false;
+
+    int round = 1;
     
     void Start()
     {
@@ -43,22 +46,27 @@ public class GameManager : MonoBehaviour
 
     void StartGame()
     {
-        healthSlider = healthBar.GetComponent<Slider>();
-        healthSlider.value = towerHealth;
+        round = 1;
+        catometerSlider = catometerBar.GetComponent<Slider>();
+        catometerSlider.value = catometer;
     }
 
     // Update is called once per frame
     void Update()
     {
         if (gameOver)
+        {
+            if (Input.anyKeyDown)
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             return;
-
+        }
+            
         if (catCooldown > 0)
             catCooldown -= Time.deltaTime;
         else
         {
             FireCat();
-            catCooldown = 3f;
+            catCooldown = 5f;
         }
     }
 
@@ -85,9 +93,9 @@ public class GameManager : MonoBehaviour
 
     void DamageTower(float damage)
     {
-        towerHealth -= damage;
-        healthSlider.value = towerHealth;
-        if (towerHealth <= 0)
+        catometer += damage;
+        catometerSlider.value = catometer;
+        if (catometer >= 100)
             GameOver();
     }
 

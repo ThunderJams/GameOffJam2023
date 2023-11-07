@@ -14,6 +14,8 @@ public class CatBase : MonoBehaviour
 
     [HideInInspector] public float gravity;
 
+    [HideInInspector] public bool onDish;
+
     void Awake()
     {
         gravity = GetComponent<Rigidbody2D>().gravityScale;
@@ -21,6 +23,12 @@ public class CatBase : MonoBehaviour
 
     void Update()
     {
+        if (!onDish)
+        {
+            // Will check stuff
+            
+        }
+
         if (aboveScreen == false && transform.position.y > 5.5f)
         {
             aboveScreen = true;
