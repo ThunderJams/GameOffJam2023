@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -10,6 +11,13 @@ public class CatBase : MonoBehaviour
     public float damage = 10f;
 
     [SerializeField] GameObject indicator;
+
+    [HideInInspector] public float gravity;
+
+    void Awake()
+    {
+        gravity = GetComponent<Rigidbody2D>().gravityScale;
+    }
 
     void Update()
     {

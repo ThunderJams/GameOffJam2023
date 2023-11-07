@@ -10,6 +10,7 @@ public class CatCannon : MonoBehaviour
     [HideInInspector] public GameObject cat;
     [SerializeField] GameObject tip;
     private float fuse;
+    private float loadAnimTime;
 
     private float cannonLimit;
 
@@ -38,7 +39,11 @@ public class CatCannon : MonoBehaviour
         if (cat == null)
             return;
 
-        cat.transform.position = tip.transform.position;
+        loadAnimTime -= Time.deltaTime;
+        if (loadAnimTime < 0)
+            loadAnimTime = 0;
+
+        cat.transform.position = Vector3.Lerp(tip.transform.position, transform.position, loadAnimTime);
         cat.transform.rotation = tip.transform.rotation;
 
         if (fuse > 0)
@@ -50,7 +55,7 @@ public class CatCannon : MonoBehaviour
     public void LoadCat(GameObject loadCat)
     {
         cat = loadCat;
-        cat.transform.position = tip.transform.position;
+        cat.transform.position = Vector3.Lerp(tip.transform.position, transform.position, 0.5f);
         cat.transform.rotation = tip.transform.rotation;
         foreach(SpriteRenderer sr in cat.GetComponentsInChildren<SpriteRenderer>())
             sr.sortingOrder = 0;
@@ -59,13 +64,14 @@ public class CatCannon : MonoBehaviour
         cat.GetComponent<Rigidbody2D>().gravityScale = 0;
 
         fuse = 1.5f;
+        loadAnimTime = 0.5f;
     }
 
     public void FireCat()
     {
         Debug.Log("Firing cat");
 
-        cat.GetComponent<Rigidbody2D>().gravityScale = 0.25f;
+        cat.GetComponent<Rigidbody2D>().gravityScale = cat.GetComponent<CatBase>().gravity;
         cat.transform.position = tip.transform.position;
         cat.GetComponent<Rigidbody2D>().velocity = tip.transform.up * 15;
         cat = null;
