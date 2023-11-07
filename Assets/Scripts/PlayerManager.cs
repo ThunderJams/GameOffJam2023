@@ -42,15 +42,25 @@ public class PlayerManager : MonoBehaviour
 
             if(hit.collider != null)
             {
-                heldCat = hit.collider.gameObject;
-                holding = true;
+                if (hit.collider.gameObject.CompareTag("Cat") && hit.collider.gameObject.GetComponent<CatBase>().activated == true)
+                {
+                    heldCat = hit.collider.gameObject;
+                    holding = true;
+                }
+                
             }
         }
 
-        // Rotate cat
-        if (Input.GetMouseButtonDown(1) && holding == true)
+        // Rotate cat with mouse wheel
+        if (Input.GetAxis("Mouse ScrollWheel") != 0 && holding == true)
         {
-            heldCat.transform.Rotate(0, 0, 90);
+            heldCat.transform.Rotate(0, 0, Input.GetAxis("Mouse ScrollWheel") * 60000 * Time.deltaTime);
+        }
+
+        //Rotat cat with right click
+        if (Input.GetMouseButton(1) && holding == true)
+        {
+            heldCat.transform.Rotate(0, 0, 300 * Time.deltaTime);
         }
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class CatBase : MonoBehaviour
 {
     bool aboveScreen = false;
-
+    [HideInInspector] public bool activated = false;
     public float damage = 10f;
 
     [SerializeField] GameObject indicator;
@@ -42,8 +42,10 @@ public class CatBase : MonoBehaviour
     public void Activate()
     {
         aboveScreen = false;
-        GetComponent<SpriteRenderer>().sortingOrder = 10;
+            foreach(SpriteRenderer sr in GetComponentsInChildren<SpriteRenderer>())
+        sr.sortingOrder = 10;
         GetComponent<Rigidbody2D>().excludeLayers = 8;
+        activated = true;
     }
 
     void FallOffScreen()

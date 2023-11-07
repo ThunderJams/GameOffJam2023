@@ -52,7 +52,8 @@ public class CatCannon : MonoBehaviour
         cat = loadCat;
         cat.transform.position = tip.transform.position;
         cat.transform.rotation = tip.transform.rotation;
-        cat.GetComponent<SpriteRenderer>().sortingOrder = 0;
+        foreach(SpriteRenderer sr in cat.GetComponentsInChildren<SpriteRenderer>())
+            sr.sortingOrder = 0;
         cat.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         cat.GetComponent<Rigidbody2D>().angularVelocity = 0;
         cat.GetComponent<Rigidbody2D>().gravityScale = 0;

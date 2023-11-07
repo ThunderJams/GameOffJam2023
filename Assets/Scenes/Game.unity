@@ -318,6 +318,26 @@ PrefabInstance:
       propertyPath: gameOverText
       value: 
       objectReference: {fileID: 95942448}
+    - target: {fileID: 430027321342823278, guid: d72d9ba55018fff48a2af6d401324864, type: 3}
+      propertyPath: catTypes.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 430027321342823278, guid: d72d9ba55018fff48a2af6d401324864, type: 3}
+      propertyPath: catTypes.Array.data[0]
+      value: 
+      objectReference: {fileID: 2308074261881401605, guid: 0806939744a3d9f408697c8aa855b762, type: 3}
+    - target: {fileID: 430027321342823278, guid: d72d9ba55018fff48a2af6d401324864, type: 3}
+      propertyPath: catTypes.Array.data[1]
+      value: 
+      objectReference: {fileID: 2308074261881401605, guid: 5c22648d3a567ad4ca44f2ddb41f2a7d, type: 3}
+    - target: {fileID: 430027321342823278, guid: d72d9ba55018fff48a2af6d401324864, type: 3}
+      propertyPath: catTypes.Array.data[2]
+      value: 
+      objectReference: {fileID: 2308074261881401605, guid: 4363aedafa5b9754aa9182c1c19cd6a2, type: 3}
+    - target: {fileID: 430027321342823278, guid: d72d9ba55018fff48a2af6d401324864, type: 3}
+      propertyPath: catTypes.Array.data[3]
+      value: 
+      objectReference: {fileID: 2308074261881401605, guid: eef64eeeacd93fd4baf70c4c23b994b5, type: 3}
     - target: {fileID: 2929384281594217654, guid: d72d9ba55018fff48a2af6d401324864, type: 3}
       propertyPath: m_Name
       value: GameManager
