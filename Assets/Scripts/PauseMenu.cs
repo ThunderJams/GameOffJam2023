@@ -15,11 +15,13 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void RestartButton(){
+        Time.timeScale = 1;
         // reload scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void QuitButton(){
+        Time.timeScale = 1;
         // load menu scene
         SceneManager.LoadScene("TitleScreen");
     }
