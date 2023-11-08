@@ -113,7 +113,7 @@ public class GameManager : MonoBehaviour
         gameOverText.SetActive(true);
     }
 
-    void PauseGame(){
+    public void PauseGame(){
         if (paused){
             Time.timeScale = 1;
             paused = false;
