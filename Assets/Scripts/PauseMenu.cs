@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneManage : MonoBehaviour
+public class PauseMenu : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
-    {
-        //DontDestroyOnLoad(gameObject);
-    }
+    
 
     // Update is called once per frame
     void Update()
@@ -17,26 +14,22 @@ public class SceneManage : MonoBehaviour
         
     }
 
-    public void OnCreditsButtonClicked(){
-        SceneManager.LoadScene("Credits");
+    public void RestartButton(){
+        Time.timeScale = 1;
+        // reload scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-    
-    public void OnPlayButtonClicked(){
-        SceneManager.LoadScene("Game");
-    }
-    
-    public void OnTitleButtonClicked(){
+
+    public void QuitButton(){
+        Time.timeScale = 1;
+        // load menu scene
         SceneManager.LoadScene("TitleScreen");
     }
 
-    public void OnSettingsButtonClicked(){
+    public void SettingsButton(){
         // find the settings manager
         GameObject settingsManager = GameObject.FindGameObjectWithTag("Settings");
         // enable the settings manager
         settingsManager.GetComponent<SettingsManager>().EnableSettings();
-    }
-
-    public void OnQuitButtonClicked(){
-        Application.Quit();
     }
 }
