@@ -269,11 +269,17 @@ PrefabInstance:
       addedObject: {fileID: 1171543971}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c5157e92cbf01145865df2e16186f9c, type: 3}
---- !u!1 &1064509315 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2929384281594217654, guid: d72d9ba55018fff48a2af6d401324864, type: 3}
+--- !u!114 &1064509316 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 430027321342823278, guid: d72d9ba55018fff48a2af6d401324864, type: 3}
   m_PrefabInstance: {fileID: 2261567492013980776}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd97ff89b80585478acec728c8796b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1171543970
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,7 +699,19 @@ PrefabInstance:
     - target: {fileID: 5002196191408906313, guid: a9449c4602bcd8c4688c50d70fb4328f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1064509315}
+      objectReference: {fileID: 1064509316}
+    - target: {fileID: 5002196191408906313, guid: a9449c4602bcd8c4688c50d70fb4328f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 5002196191408906313, guid: a9449c4602bcd8c4688c50d70fb4328f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5002196191408906313, guid: a9449c4602bcd8c4688c50d70fb4328f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7204826908853748802, guid: a9449c4602bcd8c4688c50d70fb4328f, type: 3}
       propertyPath: m_Name
       value: GameOverUI
@@ -768,12 +786,28 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 911756340749701401, guid: 1c5157e92cbf01145865df2e16186f9c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.000011444092
+      objectReference: {fileID: 0}
+    - target: {fileID: 2487384391943674581, guid: 1c5157e92cbf01145865df2e16186f9c, type: 3}
+      propertyPath: m_text
+      value: Random
+      objectReference: {fileID: 0}
     - target: {fileID: 2874694814663252399, guid: 1c5157e92cbf01145865df2e16186f9c, type: 3}
       propertyPath: m_Name
       value: GameUI
       objectReference: {fileID: 0}
     - target: {fileID: 3960948522210822778, guid: 1c5157e92cbf01145865df2e16186f9c, type: 3}
       propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001234222943895370, guid: 1c5157e92cbf01145865df2e16186f9c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001234222943895370, guid: 1c5157e92cbf01145865df2e16186f9c, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5538725192481489079, guid: 1c5157e92cbf01145865df2e16186f9c, type: 3}
