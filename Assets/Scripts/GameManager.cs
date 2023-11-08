@@ -24,10 +24,10 @@ public class GameManager : MonoBehaviour
     }  
 
     [SerializeField] GameObject catCannon;
-    [SerializeField] GameObject[] catTypes;
+    public CatType[] catTypes;
     [SerializeField] List<GameObject> cats;
     [SerializeField] GameObject catometerBar;
-    [SerializeField] GameObject gameOverText;
+    [SerializeField] GameObject gameOverScreen;
     [SerializeField] GameObject pauseMenu;
 
     Slider catometerSlider;
@@ -58,13 +58,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameOver)
-        {
-            if (Input.anyKeyDown)
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            return;
-        }
-            
         if (catCooldown > 0)
             catCooldown -= Time.deltaTime;
         else
@@ -80,14 +73,16 @@ public class GameManager : MonoBehaviour
 
     void FireCat()
     {
-        GameObject cat = Instantiate(catTypes[Random.Range(0, catTypes.Length)]);
+        GameObject cat = Instantiate(catTypes[Random.Range(0, catTypes.Length)].prefab);
         catCannon.GetComponent<CatCannon>().LoadCat(cat);
         cats.Append(cat);
     }
 
-    public void SpawnCat()
+    public void SpawnCat(int catType = -1)
     {
-        GameObject cat = Instantiate(catTypes[Random.Range(0, catTypes.Length)]);
+        if (catType == -1)
+            catType = Random.Range(0, catTypes.Length);
+        GameObject cat = Instantiate(catTypes[catType].prefab);
         cat.transform.position = new Vector3(4,2,0);
         cat.GetComponent<CatBase>().Activate();
         cats.Append(cat);
@@ -110,7 +105,12 @@ public class GameManager : MonoBehaviour
     void GameOver()
     {
         gameOver = true;
-        gameOverText.SetActive(true);
+        gameOverScreen.SetActive(true);
+    }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     void PauseGame(){

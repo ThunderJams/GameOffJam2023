@@ -33,7 +33,7 @@ public class CatCannon : MonoBehaviour
         {
             if ((cannon.transform.rotation.eulerAngles.z < 180 && cannon.transform.rotation.eulerAngles.z >= cannonLimit && Mathf.Sign(cannonHinge.motor.motorSpeed) == -1) || 
             (cannon.transform.rotation.eulerAngles.z > 180 && cannon.transform.rotation.eulerAngles.z <= 360 - cannonLimit && Mathf.Sign(cannonHinge.motor.motorSpeed) == 1))
-            SetMotorSpeed(Random.Range(15, 45) * -Mathf.Sign(cannonHinge.motor.motorSpeed));
+            SetMotorSpeed(Random.Range(20, 80) * -Mathf.Sign(cannonHinge.motor.motorSpeed));
         }
 
         if (cat == null)
@@ -73,7 +73,7 @@ public class CatCannon : MonoBehaviour
 
         cat.GetComponent<Rigidbody2D>().gravityScale = cat.GetComponent<CatBase>().gravity;
         cat.transform.position = tip.transform.position;
-        cat.GetComponent<Rigidbody2D>().velocity = tip.transform.up * 15;
+        cat.GetComponent<Rigidbody2D>().velocity = tip.transform.up * 10;
         cat = null;
     }
 

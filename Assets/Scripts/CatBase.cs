@@ -16,9 +16,12 @@ public class CatBase : MonoBehaviour
 
     [HideInInspector] public bool onDish;
 
+    Rigidbody2D rb;
+
     void Awake()
     {
-        gravity = GetComponent<Rigidbody2D>().gravityScale;
+        rb = GetComponent<Rigidbody2D>();
+        gravity = rb.gravityScale;
     }
 
     void Update()
@@ -38,12 +41,12 @@ public class CatBase : MonoBehaviour
             Activate();
         }
 
-        if (aboveScreen == true)
+        if (aboveScreen == true && rb.velocity.y < 0)
         {
             indicator.SetActive(true);
             indicator.transform.position = new Vector3(transform.position.x, 4.5f, 0);
             indicator.transform.rotation = Quaternion.Euler(0, 0, 0);
-            float distanceFromScreen = (transform.position.y - 5.5f) * 0.05f;
+            float distanceFromScreen = (transform.position.y - 5.5f) * 0.1f;
             indicator.transform.localScale = new Vector3(1 - distanceFromScreen, 1 - distanceFromScreen, 1);
         }
         else
@@ -60,7 +63,7 @@ public class CatBase : MonoBehaviour
         aboveScreen = false;
             foreach(SpriteRenderer sr in GetComponentsInChildren<SpriteRenderer>())
         sr.sortingOrder = 10;
-        GetComponent<Rigidbody2D>().excludeLayers = 8;
+        rb.excludeLayers = 8;
         activated = true;
     }
 

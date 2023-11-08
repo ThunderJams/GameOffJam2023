@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class DebugMenu : MonoBehaviour
 {
@@ -23,11 +25,19 @@ public class DebugMenu : MonoBehaviour
     }
 
     [SerializeField] GameObject debugMenu;
+    [SerializeField] TMP_Dropdown typeDropdown;
+
     bool visible;
 
     void Start()
     {
-        visible = debugMenu.activeSelf;   
+        visible = debugMenu.activeSelf;
+
+        CatType[] catTypes = GameManager.instance.catTypes;
+        foreach (CatType catType in catTypes)
+        {
+            typeDropdown.options.Add(new TMP_Dropdown.OptionData(catType.catName));
+        }
     }
 
     void Update()
@@ -47,6 +57,6 @@ public class DebugMenu : MonoBehaviour
 
     public void SpawnCat()
     {
-        GameManager.instance.SpawnCat();
+        GameManager.instance.SpawnCat(typeDropdown.value - 1);
     }
 }

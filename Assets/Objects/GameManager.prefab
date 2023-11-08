@@ -46,8 +46,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   catCannon: {fileID: 0}
   catTypes:
-  - {fileID: 4745928514844139795, guid: f7e2666a0ec718440a44b7e5e41521a9, type: 3}
+  - {fileID: 11400000, guid: 3708a5ee3b6fe2f45abdbe0d3016e8f4, type: 2}
+  - {fileID: 11400000, guid: 333925a59a7ae6249b3a961d90069d6c, type: 2}
+  - {fileID: 11400000, guid: 1089f5ff016959b4d935731a4477628c, type: 2}
+  - {fileID: 11400000, guid: 32fa5bd54eedf3a4f9f61017915297d8, type: 2}
   cats: []
-  healthBar: {fileID: 0}
-  gameOverText: {fileID: 0}
+  catometerBar: {fileID: 0}
+  gameOverScreen: {fileID: 0}
+  pauseMenu: {fileID: 0}
   gameOver: 0
