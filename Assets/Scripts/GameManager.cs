@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject catCannon;
     public CatType[] catTypes;
     [SerializeField] List<GameObject> cats;
+    [SerializeField] GameObject nextCat = null;
     [SerializeField] GameObject catometerBar;
     [SerializeField] GameObject gameOverScreen;
     [SerializeField] GameObject pauseMenu;
@@ -73,9 +74,21 @@ public class GameManager : MonoBehaviour
 
     void FireCat()
     {
-        GameObject cat = Instantiate(catTypes[Random.Range(0, catTypes.Length)].prefab);
-        catCannon.GetComponent<CatCannon>().LoadCat(cat);
-        cats.Append(cat);
+        if (nextCat == null)
+        {
+            nextCat = Instantiate(catTypes[Random.Range(0, catTypes.Length)].prefab);
+        }
+        //GameObject cat = Instantiate(catTypes[Random.Range(0, catTypes.Length)].prefab);
+        
+        nextCat.GetComponent<Rigidbody2D>().isKinematic = false;
+        catCannon.GetComponent<CatCannon>().LoadCat(nextCat);
+        cats.Append(nextCat);
+
+        // generate the next cat to be shown on the cannon
+        nextCat = Instantiate(catTypes[Random.Range(0, catTypes.Length)].prefab);
+        nextCat.transform.position = catCannon.transform.position;
+        // disable physics on the next cat
+        nextCat.GetComponent<Rigidbody2D>().isKinematic = true;
     }
 
     public void SpawnCat(int catType = -1)
