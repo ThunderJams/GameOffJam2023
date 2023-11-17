@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
     // text mesh pro
     [SerializeField] TextMeshProUGUI roundText;
     [SerializeField] TextMeshProUGUI scoreText;
+    //Timer countdown text
+    [SerializeField] TextMeshProUGUI timerText;
 
     Slider catometerSlider;
 
@@ -76,7 +78,15 @@ public class GameManager : MonoBehaviour
         if (roundText != null)
             roundText.text = "Round: " + round.ToString();
         if (scoreText != null)
-            scoreText.text = "Score: " + score.ToString();
+        {
+            //scoreText.text = "Score: " + score.ToString();
+            scoreText.text = score.ToString();
+        }
+        if (timerText != null)
+        {
+            //update the Timer text with the round timer 
+            timerText.text = System.Math.Round(roundTimer).ToString();
+        }
 
         if (catCooldown > 0)
             catCooldown -= (Time.deltaTime * (1 + (1/round)));
