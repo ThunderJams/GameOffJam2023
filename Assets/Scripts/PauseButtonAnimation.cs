@@ -9,7 +9,7 @@ public class PauseButtonAnimation : MonoBehaviour
 {
     private TextMeshProUGUI text;
 
-    public float scaleIncrease = 1.2f;
+    public float scaleFactor = 1.2f;
     public Vector3 initialTextScale;
     private Color initialTextColor;
     public Color clickedTextColor = Color.green;
@@ -23,7 +23,7 @@ public class PauseButtonAnimation : MonoBehaviour
 
     public void onPointerEnter(BaseEventData data)
     {
-        text.transform.DOScale(initialTextScale * scaleIncrease, 0.2f).SetEase(Ease.OutCubic).SetUpdate(true);
+        text.transform.DOScale(initialTextScale * scaleFactor, 0.2f).SetEase(Ease.OutCubic).SetUpdate(true);
     }
 
     public void onPointerExit(BaseEventData data)

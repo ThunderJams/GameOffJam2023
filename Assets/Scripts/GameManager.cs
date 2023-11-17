@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject nextCat = null;
     [SerializeField] GameObject catometerBar;
     [SerializeField] GameObject gameOverScreen;
-    [SerializeField] GameObject pauseMenu;
+    [SerializeField] PauseMenu pauseMenu;
 
     // text mesh pro
     [SerializeField] TextMeshProUGUI roundText;
@@ -183,14 +183,11 @@ public class GameManager : MonoBehaviour
     }
 
     public void PauseGame(){
-        if (paused){
-            Time.timeScale = 1;
-            paused = false;
+        //Prevent the player from spamming the pause button
+        if (pauseMenu.CanPause()){
+            paused = !paused;
+            //enable the pause menu screen
+            pauseMenu.SetPaused(paused);
         }
-        else{
-            Time.timeScale = 0;
-            paused = true;
-        }
-        pauseMenu.SetActive(paused);
     }
 }
