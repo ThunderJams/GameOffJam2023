@@ -18,6 +18,8 @@ public class CatBase : MonoBehaviour
 
     Rigidbody2D rb;
 
+    public float scoreValue = 10;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();

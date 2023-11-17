@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -25,11 +26,19 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] GameObject catCannon;
     public CatType[] catTypes;
+
+    public CatType[] selectedCats;
+
+
     [SerializeField] List<GameObject> cats;
     [SerializeField] GameObject nextCat = null;
     [SerializeField] GameObject catometerBar;
     [SerializeField] GameObject gameOverScreen;
     [SerializeField] GameObject pauseMenu;
+
+    // text mesh pro
+    [SerializeField] TextMeshProUGUI roundText;
+    [SerializeField] TextMeshProUGUI scoreText;
 
     Slider catometerSlider;
 
@@ -43,6 +52,9 @@ public class GameManager : MonoBehaviour
 
     bool paused = false;
 
+    float roundTimer = 60f;
+    int score = 0;
+
     
     void Start()
     {
@@ -54,13 +66,20 @@ public class GameManager : MonoBehaviour
         round = 1;
         catometerSlider = catometerBar.GetComponent<Slider>();
         catometerSlider.value = catometer;
+
+        selectedCats = catTypes.OrderBy(x => Random.value).Take(6).ToArray();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (roundText != null)
+            roundText.text = "Round: " + round.ToString();
+        if (scoreText != null)
+            scoreText.text = "Score: " + score.ToString();
+
         if (catCooldown > 0)
-            catCooldown -= Time.deltaTime;
+            catCooldown -= (Time.deltaTime * (1 + (1/round)));
         else
         {
             FireCat();
@@ -70,13 +89,18 @@ public class GameManager : MonoBehaviour
         if (Input.GetButtonDown("Pause")){
             PauseGame();
         }
+
+        if (roundTimer > 0)
+            roundTimer -= Time.deltaTime;
+        else
+            NewRound();
     }
 
     void FireCat()
     {
         if (nextCat == null)
         {
-            nextCat = Instantiate(catTypes[Random.Range(0, catTypes.Length)].prefab);
+            nextCat = Instantiate(selectedCats[Random.Range(0, selectedCats.Length)].prefab);
         }
         //GameObject cat = Instantiate(catTypes[Random.Range(0, catTypes.Length)].prefab);
         
@@ -84,11 +108,33 @@ public class GameManager : MonoBehaviour
         catCannon.GetComponent<CatCannon>().LoadCat(nextCat);
         cats.Append(nextCat);
 
+        // add to the score for the cat placed
+        score += (int)nextCat.GetComponent<CatBase>().scoreValue;
+
         // generate the next cat to be shown on the cannon
         nextCat = Instantiate(catTypes[Random.Range(0, catTypes.Length)].prefab);
         nextCat.transform.position = catCannon.transform.position;
         // disable physics on the next cat
         nextCat.GetComponent<Rigidbody2D>().isKinematic = true;
+
+        
+    }
+
+    void NewRound(){
+        round++;
+        roundTimer = 60f;
+
+        // select up to 6 new cats
+        selectedCats = catTypes.OrderBy(x => Random.value).Take(6).ToArray();
+
+        //score += catsOnPlatform * catMultiplierSum;
+        foreach (GameObject cat in cats){
+            score += (int)cat.GetComponent<CatBase>().scoreValue;
+        }
+        //score += catsOnPlatform * catMultiplierSum;
+
+        // set catometer to 0.8 of itself
+        catometer = catometer * 0.8f;
     }
 
     public void SpawnCat(int catType = -1)
