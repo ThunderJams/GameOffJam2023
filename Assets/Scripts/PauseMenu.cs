@@ -8,13 +8,12 @@ using UnityEngine.UI;
 public class PauseMenu : MonoBehaviour
 {
     private bool _paused = false;
-    public GameObject contents;
-    public Image background;
-    public Color initialBackgroundColor;
+    [SerializeField] GameObject contents;
+    [SerializeField] Image background;
+    private Color initialBackgroundColor;
     private Vector3 initialMenuScale = -Vector3.one;
 
     public bool lockPauseButton = false;
-    public float scaleFactor = 1.2f;
     void Start()
     {
 
@@ -45,8 +44,6 @@ public class PauseMenu : MonoBehaviour
         {
             initialMenuScale = contents.transform.localScale;
             initialBackgroundColor = background.color;
-            print(initialBackgroundColor);
-
         }
         AnimatePauseMenu(paused);
     }
@@ -62,7 +59,6 @@ public class PauseMenu : MonoBehaviour
         if (paused)
         {
             Time.timeScale = 0;
-            _paused = true;
 
             lockPauseButton = false;
             //Set the background alpha and content scale at 0 
@@ -72,7 +68,7 @@ public class PauseMenu : MonoBehaviour
             //We set the update to true to work while the timescale is off
             background.DOFade(initialBackgroundColor.a, 0.3f).SetUpdate(true);
             gameObject.SetActive(true);
-            contents.transform.DOScale(initialMenuScale * scaleFactor, 0.7f).SetEase(Ease.OutBack, 0.8f).SetUpdate(true);
+            contents.transform.DOScale(initialMenuScale, 0.7f).SetEase(Ease.OutBack, 1.2f).SetUpdate(true);
         }
         else
         {
@@ -84,7 +80,6 @@ public class PauseMenu : MonoBehaviour
         
                 Time.timeScale = 1;
                 lockPauseButton = false;
-                paused = false; 
                 gameObject.SetActive(false); 
             };
 
