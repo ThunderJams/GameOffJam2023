@@ -1140,10 +1140,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cd03c05d8b213449baa9666585dd490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contents: {fileID: 8108468066198630697}
-  background: {fileID: 6679602432477695316}
-  initialBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
-  scaleFactor: 1.2
+  PausePanel: {fileID: 3341864912092075644}
+  Background: {fileID: 6679602432477695316}
+  lockPauseButton: 0
 --- !u!1 &4243674737018996632
 GameObject:
   m_ObjectHideFlags: 0
@@ -1857,6 +1856,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5847791020201185175}
+  - component: {fileID: 3341864912092075644}
   m_Layer: 5
   m_Name: Contents
   m_TagString: Untagged
@@ -1890,6 +1890,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &3341864912092075644
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8108468066198630697}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &8237509012776441795
 GameObject:
   m_ObjectHideFlags: 0

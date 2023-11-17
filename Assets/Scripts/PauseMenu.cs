@@ -8,10 +8,10 @@ using UnityEngine.UI;
 public class PauseMenu : MonoBehaviour
 {
     private bool _paused = false;
-    [SerializeField] GameObject contents;
-    [SerializeField] Image background;
-    private Color initialBackgroundColor;
-    private Vector3 initialMenuScale = -Vector3.one;
+    [SerializeField] CanvasGroup PausePanel;
+    [SerializeField] Image Background;
+    private Color _initialBackgroundColor;
+    private Vector3 _initialMenuScale = -Vector3.one;
 
     public bool lockPauseButton = false;
     void Start()
@@ -40,10 +40,10 @@ public class PauseMenu : MonoBehaviour
     /// <param name="paused"></param>
     public void SetPaused(bool paused)
     {
-        if (initialMenuScale == -Vector3.one)
+        if (_initialMenuScale == -Vector3.one)
         {
-            initialMenuScale = contents.transform.localScale;
-            initialBackgroundColor = background.color;
+            _initialMenuScale = PausePanel.transform.localScale;
+            _initialBackgroundColor = Background.color;
         }
         AnimatePauseMenu(paused);
     }
@@ -58,30 +58,33 @@ public class PauseMenu : MonoBehaviour
         lockPauseButton = true;
         if (paused)
         {
+            PausePanel.alpha = 0f;
             Time.timeScale = 0;
 
             lockPauseButton = false;
             //Set the background alpha and content scale at 0 
-            background.color = new Color(background.color.r, background.color.g, background.color.b, 0);
-            contents.transform.localScale = Vector3.zero;
+            Background.color = new Color(Background.color.r, Background.color.g, Background.color.b, 0);
+            PausePanel.transform.localScale = Vector3.zero;
 
             //We set the update to true to work while the timescale is off
-            background.DOFade(initialBackgroundColor.a, 0.3f).SetUpdate(true);
+            Background.DOFade(_initialBackgroundColor.a, 0.3f).SetUpdate(true);
             gameObject.SetActive(true);
-            contents.transform.DOScale(initialMenuScale, 0.7f).SetEase(Ease.OutBack, 1.2f).SetUpdate(true);
+            PausePanel.DOFade(1, 0.1f).SetEase(Ease.OutQuint).SetUpdate(true);
+            PausePanel.transform.DOScale(_initialMenuScale, 0.7f).SetEase(Ease.OutBack, 1.2f).SetUpdate(true);
         }
         else
         {
             //Hide the pause menu
-            background.DOFade(0, 0.5f).SetUpdate(true);
+            Background.DOFade(0, 0.5f).SetUpdate(true);
             //We wait until the end of the pause animation to resume the game 
-            contents.transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InBack).SetUpdate(true).onComplete += ()=> 
+            PausePanel.transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InBack).SetUpdate(true).onComplete += ()=> 
             {
         
                 Time.timeScale = 1;
                 lockPauseButton = false;
                 gameObject.SetActive(false); 
             };
+            PausePanel.DOFade(0, 0.5f).SetEase(Ease.InBack).SetUpdate(true);
 
         }
     }

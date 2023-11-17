@@ -644,7 +644,7 @@ PrefabInstance:
     - target: {fileID: 430027321342823278, guid: d72d9ba55018fff48a2af6d401324864, type: 3}
       propertyPath: pauseMenu
       value: 
-      objectReference: {fileID: 2874694815600249392}
+      objectReference: {fileID: 2874694815600249393}
     - target: {fileID: 430027321342823278, guid: d72d9ba55018fff48a2af6d401324864, type: 3}
       propertyPath: roundText
       value: 
@@ -782,11 +782,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4b9cf2ee3edcf9408cb3574eeac26f1, type: 3}
---- !u!1 &2874694815600249392 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3577778051165009994, guid: 7c5f80af533b03749a53b907110405a0, type: 3}
+--- !u!114 &2874694815600249393 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2395810629708951307, guid: 7c5f80af533b03749a53b907110405a0, type: 3}
   m_PrefabInstance: {fileID: 819677576476185780}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cd03c05d8b213449baa9666585dd490, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4841863333974530569
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -825,7 +831,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3919704561880915045, guid: 1c5157e92cbf01145865df2e16186f9c, type: 3}
       propertyPath: m_FillAmount
-      value: 1
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 3949519311002734558, guid: 1c5157e92cbf01145865df2e16186f9c, type: 3}
       propertyPath: m_AnchorMax.x
