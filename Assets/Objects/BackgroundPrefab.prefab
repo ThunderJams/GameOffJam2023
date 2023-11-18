@@ -212,6 +212,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3110206810452444390}
   - component: {fileID: 2638173414021369434}
+  - component: {fileID: 5129700121975074879}
   m_Layer: 0
   m_Name: CatPainting1
   m_TagString: Untagged
@@ -286,6 +287,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5129700121975074879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640503705789976440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 664efaec545a94645b214e30e3b7c507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeRandomness: 20
+  shakeDuration: 0.5
+  shakeStrength: 5
+  shakeVibrato: 2
+  minDelay: 3
+  maxDelay: 15
 --- !u!1 &2774519437159886213
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,6 +315,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4231978041429592777}
   - component: {fileID: 9120025248432727094}
+  - component: {fileID: 3801723977877829091}
   m_Layer: 0
   m_Name: CatPainting3
   m_TagString: Untagged
@@ -370,6 +390,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3801723977877829091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2774519437159886213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 664efaec545a94645b214e30e3b7c507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeRandomness: 20
+  shakeDuration: 0.5
+  shakeStrength: 5
+  shakeVibrato: 2
+  minDelay: 3
+  maxDelay: 15
 --- !u!1 &3852390763528587364
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,6 +586,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2384991213943520350}
   - component: {fileID: 7551612584126016334}
+  - component: {fileID: 1966087939738486376}
   m_Layer: 0
   m_Name: CatPainting4
   m_TagString: Untagged
@@ -622,6 +661,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1966087939738486376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6428990831533025461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 664efaec545a94645b214e30e3b7c507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeRandomness: 20
+  shakeDuration: 0.5
+  shakeStrength: 5
+  shakeVibrato: 2
+  minDelay: 3
+  maxDelay: 15
 --- !u!1 &6537148304956018933
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,6 +743,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2061208348266939013}
   - component: {fileID: 2508310393605121906}
+  - component: {fileID: 3855795878162735908}
   m_Layer: 0
   m_Name: CatPainting2
   m_TagString: Untagged
@@ -760,6 +818,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3855795878162735908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7508774158459882564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 664efaec545a94645b214e30e3b7c507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeRandomness: 20
+  shakeDuration: 0.5
+  shakeStrength: 5
+  shakeVibrato: 2
+  minDelay: 3
+  maxDelay: 15
 --- !u!1 &7807962111324225380
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,6 +931,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4544580956320034298}
   - component: {fileID: 7861752218199739835}
+  - component: {fileID: 6544182151006547306}
   m_Layer: 0
   m_Name: CatPainting5
   m_TagString: Untagged
@@ -929,3 +1006,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6544182151006547306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9134477207650785301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 664efaec545a94645b214e30e3b7c507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeRandomness: 20
+  shakeDuration: 0.5
+  shakeStrength: 5
+  shakeVibrato: 2
+  minDelay: 3
+  maxDelay: 15

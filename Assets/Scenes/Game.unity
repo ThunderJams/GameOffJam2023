@@ -1011,16 +1011,20 @@ PrefabInstance:
       value: 135
       objectReference: {fileID: 0}
     - target: {fileID: 9103932345534027740, guid: 1c5157e92cbf01145865df2e16186f9c, type: 3}
+      propertyPath: idleDuration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9103932345534027740, guid: 1c5157e92cbf01145865df2e16186f9c, type: 3}
       propertyPath: idleMaxAngle
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9103932345534027740, guid: 1c5157e92cbf01145865df2e16186f9c, type: 3}
       propertyPath: valueChangedMaxAngle
-      value: 180
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 9103932345534027740, guid: 1c5157e92cbf01145865df2e16186f9c, type: 3}
       propertyPath: valueChangedStrength
-      value: 3
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
