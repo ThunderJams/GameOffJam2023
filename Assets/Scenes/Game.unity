@@ -186,6 +186,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &764501687 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6889408209754432316, guid: 1c5157e92cbf01145865df2e16186f9c, type: 3}
+  m_PrefabInstance: {fileID: 4841863333974530569}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &764501689 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2575115209805571893, guid: 1c5157e92cbf01145865df2e16186f9c, type: 3}
+  m_PrefabInstance: {fileID: 4841863333974530569}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764501687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46c23f2e185f45e41b2f48b181777b67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &764501693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764501687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 764501689}
+          m_TargetAssemblyTypeName: PauseButton, Assembly-CSharp
+          m_MethodName: onPointerEnter
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 764501689}
+          m_TargetAssemblyTypeName: PauseButton, Assembly-CSharp
+          m_MethodName: onPointerExit
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &1291788389 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8174241881010460895, guid: 1c5157e92cbf01145865df2e16186f9c, type: 3}
@@ -949,10 +1010,25 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 135
       objectReference: {fileID: 0}
+    - target: {fileID: 9103932345534027740, guid: 1c5157e92cbf01145865df2e16186f9c, type: 3}
+      propertyPath: idleMaxAngle
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9103932345534027740, guid: 1c5157e92cbf01145865df2e16186f9c, type: 3}
+      propertyPath: valueChangedMaxAngle
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 9103932345534027740, guid: 1c5157e92cbf01145865df2e16186f9c, type: 3}
+      propertyPath: valueChangedStrength
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6889408209754432316, guid: 1c5157e92cbf01145865df2e16186f9c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 764501693}
   m_SourcePrefab: {fileID: 100100000, guid: 1c5157e92cbf01145865df2e16186f9c, type: 3}
 --- !u!1001 &7104724098896971645
 PrefabInstance:

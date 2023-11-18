@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
@@ -42,7 +43,7 @@ public class GameManager : MonoBehaviour
     //Timer countdown text
     [SerializeField] TextMeshProUGUI timerText;
 
-    Slider catometerSlider;
+    CatOMeterSlider catometerSlider;
 
     float catometer = 0f;
 
@@ -66,9 +67,8 @@ public class GameManager : MonoBehaviour
     void StartGame()
     {
         round = 1;
-        catometerSlider = catometerBar.GetComponent<Slider>();
-        catometerSlider.value = catometer;
 
+        catometerSlider = catometerBar.GetComponent<CatOMeterSlider>();
         selectedCats = catTypes.OrderBy(x => Random.value).Take(6).ToArray();
     }
 
@@ -145,6 +145,7 @@ public class GameManager : MonoBehaviour
 
         // set catometer to 0.8 of itself
         catometer = catometer * 0.8f;
+        catometerSlider.UpdateValue(catometer);
     }
 
     public void SpawnCat(int catType = -1)
@@ -166,7 +167,7 @@ public class GameManager : MonoBehaviour
     void DamageTower(float damage)
     {
         catometer += damage;
-        catometerSlider.value = catometer;
+        catometerSlider.UpdateValue(catometer);
         if (catometer >= 100)
             GameOver();
     }

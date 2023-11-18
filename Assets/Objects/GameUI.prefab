@@ -329,6 +329,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5960609706485588597}
   - component: {fileID: 6426488342361208918}
+  - component: {fileID: 9103932345534027740}
   m_Layer: 5
   m_Name: Catometer
   m_TagString: Untagged
@@ -409,6 +410,24 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &9103932345534027740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2503865044167928713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14ca6669b7ab7a2478c6e04535c2acfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idleMaxAngle: 20
+  idleDuration: 3
+  valueChangedMaxAngle: 60
+  valueChangedDuration: 2
+  valueChangedStrength: 10
+  valueChangedVibrato: 2
 --- !u!1 &2739439515071071942
 GameObject:
   m_ObjectHideFlags: 0

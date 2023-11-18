@@ -17,7 +17,7 @@ public class PauseButton : MonoBehaviour
     //Shake the transform
     public void onPointerEnter(BaseEventData data)
     {
-        transform.DOShakeRotation(0.5f,new Vector3(0,0,5), 10, 15,true, ShakeRandomnessMode.Harmonic).SetEase(Ease.InBack);
+        transform.DOShakeRotation(0.5f,new Vector3(0,0,5), 10, 40,true, ShakeRandomnessMode.Harmonic).SetEase(Ease.InBack);
     }
 
     //Reset to initialState
