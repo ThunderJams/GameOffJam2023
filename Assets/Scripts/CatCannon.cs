@@ -9,6 +9,11 @@ public class CatCannon : MonoBehaviour
     private HingeJoint2D cannonHinge;
     [HideInInspector] public GameObject cat;
     [SerializeField] GameObject tip;
+
+    public float fuseTime = 1.5f;
+    public float cannonStrength = 10;
+    public Vector2 cannonSpeedRange = new Vector2(20, 80);
+
     private float fuse;
     private float loadAnimTime;
 
@@ -33,7 +38,7 @@ public class CatCannon : MonoBehaviour
         {
             if ((cannon.transform.rotation.eulerAngles.z < 180 && cannon.transform.rotation.eulerAngles.z >= cannonLimit && Mathf.Sign(cannonHinge.motor.motorSpeed) == -1) || 
             (cannon.transform.rotation.eulerAngles.z > 180 && cannon.transform.rotation.eulerAngles.z <= 360 - cannonLimit && Mathf.Sign(cannonHinge.motor.motorSpeed) == 1))
-            SetMotorSpeed(Random.Range(20, 80) * -Mathf.Sign(cannonHinge.motor.motorSpeed));
+            SetMotorSpeed(Random.Range(cannonSpeedRange.x, cannonSpeedRange.y) * -Mathf.Sign(cannonHinge.motor.motorSpeed));
         }
 
         if (cat == null)
@@ -63,8 +68,8 @@ public class CatCannon : MonoBehaviour
         cat.GetComponent<Rigidbody2D>().angularVelocity = 0;
         cat.GetComponent<Rigidbody2D>().gravityScale = 0;
 
-        fuse = 1.5f;
-        loadAnimTime = 0.5f;
+        fuse = fuseTime;
+        loadAnimTime = fuseTime / 3;
     }
 
     public void FireCat()
@@ -73,7 +78,7 @@ public class CatCannon : MonoBehaviour
 
         cat.GetComponent<Rigidbody2D>().gravityScale = cat.GetComponent<CatBase>().gravity;
         cat.transform.position = tip.transform.position;
-        cat.GetComponent<Rigidbody2D>().velocity = tip.transform.up * 10;
+        cat.GetComponent<Rigidbody2D>().velocity = tip.transform.up * cannonStrength;
         cat = null;
     }
 
