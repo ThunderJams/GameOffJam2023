@@ -12,6 +12,11 @@ public class PlayerManager : MonoBehaviour
         if (GameManager.instance.gameOver)
             return;
 
+        if (heldCat == null)
+        {
+            holding = false;
+        }
+
         // If holding cat, move cat to mouse position
         if (holding == true)
         {
