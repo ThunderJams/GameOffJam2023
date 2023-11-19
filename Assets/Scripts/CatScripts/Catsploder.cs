@@ -22,7 +22,7 @@ public class Catsploder : MonoBehaviour
         foreach (RaycastHit2D hit in hits)
         {
             // Check if raycast hit another cat
-            if (hit.collider.gameObject.GetComponent<CatBase>() != null)
+            if (hit.collider.gameObject.GetComponent<CatBase>() != null  && hit.collider.gameObject.GetComponent<CatBase>() != GetComponent<CatBase>())
             {
                 // Push away from the other cat
                 Vector2 direction = hit.collider.gameObject.transform.position - transform.position;
