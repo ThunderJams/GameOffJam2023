@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     public CatType[] selectedCats;
 
 
-    [SerializeField] List<GameObject> cats;
+    List<GameObject> cats;
     [SerializeField] GameObject nextCat = null;
     [SerializeField] GameObject catometerBar;
     [SerializeField] GameObject gameOverScreen;
@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
 
     // text mesh pro
     [SerializeField] TextMeshProUGUI roundText;
-    [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] ScoreUpdateText scoreText;
     //Timer countdown text
     [SerializeField] TextMeshProUGUI timerText;
 
@@ -56,12 +56,17 @@ public class GameManager : MonoBehaviour
     bool paused = false;
 
     float roundTimer = 60f;
-    int score = 0;
 
-    
+    private int _score;
+    public int score
+    {
+        get { return _score; }
+        set { _score = value; UpdateScore(); }
+    }
     void Start()
     {
         StartGame();
+        cats = new List<GameObject>();
     }
 
     void StartGame()
@@ -77,11 +82,11 @@ public class GameManager : MonoBehaviour
     {
         if (roundText != null)
             roundText.text = "Round: " + round.ToString();
-        if (scoreText != null)
-        {
-            //scoreText.text = "Score: " + score.ToString();
-            scoreText.text = score.ToString();
-        }
+        //if (scoreText != null)
+        //{
+        //    //scoreText.text = "Score: " + score.ToString();
+        //    scoreText.UpdateText(score);
+        //}
         if (timerText != null)
         {
             //update the Timer text with the round timer 
@@ -116,10 +121,9 @@ public class GameManager : MonoBehaviour
         
         nextCat.GetComponent<Rigidbody2D>().isKinematic = false;
         catCannon.GetComponent<CatCannon>().LoadCat(nextCat);
-        cats.Append(nextCat);
-
         // add to the score for the cat placed
         score += (int)nextCat.GetComponent<CatBase>().scoreValue;
+        cats.Add(nextCat);
 
         // generate the next cat to be shown on the cannon
         nextCat = Instantiate(catTypes[Random.Range(0, catTypes.Length)].prefab);
@@ -127,12 +131,12 @@ public class GameManager : MonoBehaviour
         // disable physics on the next cat
         nextCat.GetComponent<Rigidbody2D>().isKinematic = true;
 
-        
+
     }
 
     void NewRound(){
         round++;
-        roundTimer = 60f;
+        roundTimer = 30f;
 
         // select up to 6 new cats
         selectedCats = catTypes.OrderBy(x => Random.value).Take(6).ToArray();
@@ -155,7 +159,7 @@ public class GameManager : MonoBehaviour
         GameObject cat = Instantiate(catTypes[catType].prefab);
         cat.transform.position = new Vector3(4,2,0);
         cat.GetComponent<CatBase>().Activate();
-        cats.Append(cat);
+        cats.Add(cat);
     }
 
     public void RemoveCat(GameObject cat)
@@ -191,4 +195,16 @@ public class GameManager : MonoBehaviour
             pauseMenu.SetPaused(paused);
         }
     }
+
+    /// <summary>
+    /// Send an update request for the score
+    /// </summary>
+    private void UpdateScore()
+    {
+        if (scoreText != null)
+        {
+            scoreText.UpdateText(score);
+        }
+    }
+
 }
