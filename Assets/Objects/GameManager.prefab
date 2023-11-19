@@ -50,8 +50,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 333925a59a7ae6249b3a961d90069d6c, type: 2}
   - {fileID: 11400000, guid: 1089f5ff016959b4d935731a4477628c, type: 2}
   - {fileID: 11400000, guid: 32fa5bd54eedf3a4f9f61017915297d8, type: 2}
+  - {fileID: 11400000, guid: 5c32bcb2145cf444798fff011812b256, type: 2}
+  - {fileID: 11400000, guid: 44abcef092302df4f88e881e1a279b75, type: 2}
+  - {fileID: 11400000, guid: 553d8479adbb2b141b9ef7a49cbecd0a, type: 2}
+  - {fileID: 11400000, guid: 75ae9e917ea14294382f4bb0aaca8756, type: 2}
+  selectedCats: []
   cats: []
+  nextCat: {fileID: 0}
   catometerBar: {fileID: 0}
   gameOverScreen: {fileID: 0}
   pauseMenu: {fileID: 0}
+  roundText: {fileID: 0}
+  scoreText: {fileID: 0}
   gameOver: 0

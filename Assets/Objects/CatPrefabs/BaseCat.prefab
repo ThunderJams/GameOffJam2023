@@ -137,6 +137,7 @@ MonoBehaviour:
   indicator: {fileID: 3598205291745047915}
   gravity: 0
   onDish: 0
+  scoreValue: 10
 --- !u!50 &4932147813124258176
 Rigidbody2D:
   serializedVersion: 4
@@ -153,7 +154,7 @@ Rigidbody2D:
   m_LinearDrag: 0.8
   m_AngularDrag: 50
   m_GravityScale: 0.15
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2d676343f0fbdbb44b2a8bcdfd52aee7, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
