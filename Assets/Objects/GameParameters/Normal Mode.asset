@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a75bc8a6b514b0740ac505dfc2802039, type: 3}
+  m_Name: Normal Mode
+  m_EditorClassIdentifier: 
+  presetName: Normal mode
+  minCannonPropellingStrength: 5
+  maxCannonPropellingStrength: 15
+  cannonFuseBaseSpeed: 0
+  minimumCatSpawnTimer: 0.5
+  globalCatGravityMultiplier: 1
+  towerBeamMass: 0
+  towerBeamDrag: 0
+  dishLinearDrag: 0
+  roundTimer: 30
+  startingCatAmount: 4
+  incrementRate: 0.25
+  catOMeterVariance: 0.25
+  baseCatDroppedScore: 10
+  catScaleMultiplier: 1

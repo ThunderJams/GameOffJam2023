@@ -74,4 +74,8 @@ public class CatBase : MonoBehaviour
         GameManager.instance.RemoveCat(gameObject);
         Destroy(gameObject);
     }
+    private void OnDestroy()
+    {
+        GameManager.instance.RemoveCat(gameObject);
+    }
 }

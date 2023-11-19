@@ -14,6 +14,10 @@ public class GameManager : MonoBehaviour
     public delegate void EndOfRound();
     public static event EndOfRound OnEndOfRound;
 
+    /// <summary>
+    /// Data about the different game parameters
+    /// </summary>
+    public GameParameters gameParameters;
     void Awake()
     {
         if (instance == null)
@@ -58,7 +62,7 @@ public class GameManager : MonoBehaviour
 
     bool paused = false;
 
-    float roundTimer = 60f;
+    float roundTimer;
 
     int activeBuccaneers = 0;
 
@@ -73,10 +77,19 @@ public class GameManager : MonoBehaviour
         get { return _score; }
         set { _score = value; UpdateScore(); }
     }
+
+    //Placeholder for now, the game goes faster the morerounds and the lower the catometer is 
+    //formulas are roughly :
+    //BaseTimeIncrement =  1 + floor(RoundTimer/15) * ((roundsSurvived+1) * incrementRate)
+    //FinalTimeIncrement = BaseTimeIncrement* lerp(1+catOMeterVariance,1-catOMeterVariance, catOMeterValue)
+
+    public float BaseTimeIncrement = 1;
+    public float FinalTimeIncrement = 1;
     void Start()
     {
         StartGame();
         cats = new List<GameObject>();
+        roundTimer = gameParameters.roundTimer;
     }
 
     void StartGame()
@@ -84,7 +97,7 @@ public class GameManager : MonoBehaviour
         round = 1;
 
         catometerSlider = catometerBar.GetComponent<CatOMeterSlider>();
-        selectedCats = catTypes.OrderBy(x => Random.value).Take(6).ToArray();
+        selectedCats = catTypes.OrderBy(x => Random.value).Take(gameParameters.startingCatAmount).ToArray();
     }
 
     // Update is called once per frame
@@ -158,7 +171,7 @@ public class GameManager : MonoBehaviour
 
     void NewRound(){
         round++;
-        roundTimer = 30f;
+        roundTimer = gameParameters.roundTimer;
 
         // select up to 6 new cats
         selectedCats = catTypes.OrderBy(x => Random.value).Take(6).ToArray();
