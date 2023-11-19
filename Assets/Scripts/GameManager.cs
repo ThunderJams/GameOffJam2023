@@ -58,6 +58,13 @@ public class GameManager : MonoBehaviour
     float roundTimer = 60f;
     int score = 0;
 
+    int activeBuccaneers = 0;
+
+    public void ChangeBuccaneer(int change)
+    {
+        activeBuccaneers += change;
+    }
+
     
     void Start()
     {
@@ -82,11 +89,15 @@ public class GameManager : MonoBehaviour
             scoreText.text = "Score: " + score.ToString();
 
         if (catCooldown > 0)
-            catCooldown -= (Time.deltaTime * (1 + (1/round)));
+        {
+            catCooldown -= Time.deltaTime * (1 + (1/round));
+        }
         else
         {
-            FireCat();
             catCooldown = 5f;
+            for (int i = 0; i < activeBuccaneers; i++)
+                catCooldown *= 0.8f;
+            FireCat();
         }
 
         if (Input.GetButtonDown("Pause")){
@@ -109,7 +120,7 @@ public class GameManager : MonoBehaviour
         //GameObject cat = Instantiate(catTypes[Random.Range(0, catTypes.Length)].prefab);
         
         nextCat.GetComponent<Rigidbody2D>().isKinematic = false;
-        catCannon.GetComponent<CatCannon>().LoadCat(nextCat);
+        catCannon.GetComponent<CatCannon>().LoadCat(nextCat, (1 + (1/round)) * catCooldown/4);
         cats.Append(nextCat);
 
         // add to the score for the cat placed

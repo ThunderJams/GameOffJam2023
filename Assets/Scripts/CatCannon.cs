@@ -10,7 +10,6 @@ public class CatCannon : MonoBehaviour
     [HideInInspector] public GameObject cat;
     [SerializeField] GameObject tip;
 
-    public float fuseTime = 1.5f;
     public float cannonStrength = 10;
     public Vector2 cannonSpeedRange = new Vector2(20, 80);
 
@@ -57,7 +56,7 @@ public class CatCannon : MonoBehaviour
             FireCat();
     }
 
-    public void LoadCat(GameObject loadCat)
+    public void LoadCat(GameObject loadCat, float fuseTime = 1f)
     {
         cat = loadCat;
         cat.transform.position = Vector3.Lerp(tip.transform.position, transform.position, 0.5f);

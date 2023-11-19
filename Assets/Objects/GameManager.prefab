@@ -59,6 +59,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 44dce3ce18935e64f923b5041659f54a, type: 2}
   - {fileID: 11400000, guid: 33928464b9eb71543974bf3183031334, type: 2}
   - {fileID: 11400000, guid: 2a9a5d48fcddebd44bb5ad8aa40d767b, type: 2}
+  - {fileID: 11400000, guid: 8c01013a299987549b8d742cea7cea68, type: 2}
   selectedCats: []
   cats: []
   nextCat: {fileID: 0}
