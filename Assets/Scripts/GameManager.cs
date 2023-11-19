@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
@@ -33,19 +34,19 @@ public class GameManager : MonoBehaviour
     public CatType[] selectedCats;
 
 
-    [SerializeField] List<GameObject> cats;
+    List<GameObject> cats;
     [SerializeField] GameObject nextCat = null;
     [SerializeField] GameObject catometerBar;
     [SerializeField] GameObject gameOverScreen;
-    [SerializeField] GameObject pauseMenu;
+    [SerializeField] PauseMenu pauseMenu;
 
     // text mesh pro
     [SerializeField] TextMeshProUGUI roundText;
-    [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] ScoreUpdateText scoreText;
     //Timer countdown text
     [SerializeField] TextMeshProUGUI timerText;
 
-    Slider catometerSlider;
+    CatOMeterSlider catometerSlider;
 
     float catometer = 0f;
 
@@ -58,7 +59,6 @@ public class GameManager : MonoBehaviour
     bool paused = false;
 
     float roundTimer = 60f;
-    int score = 0;
 
     int activeBuccaneers = 0;
 
@@ -67,18 +67,23 @@ public class GameManager : MonoBehaviour
         activeBuccaneers += change;
     }
 
-    
+    private int _score;
+    public int score
+    {
+        get { return _score; }
+        set { _score = value; UpdateScore(); }
+    }
     void Start()
     {
         StartGame();
+        cats = new List<GameObject>();
     }
 
     void StartGame()
     {
         round = 1;
-        catometerSlider = catometerBar.GetComponent<Slider>();
-        catometerSlider.value = catometer;
 
+        catometerSlider = catometerBar.GetComponent<CatOMeterSlider>();
         selectedCats = catTypes.OrderBy(x => Random.value).Take(6).ToArray();
     }
 
@@ -87,11 +92,11 @@ public class GameManager : MonoBehaviour
     {
         if (roundText != null)
             roundText.text = "Round: " + round.ToString();
-        if (scoreText != null)
-        {
-            //scoreText.text = "Score: " + score.ToString();
-            scoreText.text = score.ToString();
-        }
+        //if (scoreText != null)
+        //{
+        //    //scoreText.text = "Score: " + score.ToString();
+        //    scoreText.UpdateText(score);
+        //}
         if (timerText != null)
         {
             //update the Timer text with the round timer 
@@ -130,11 +135,11 @@ public class GameManager : MonoBehaviour
         //GameObject cat = Instantiate(catTypes[Random.Range(0, catTypes.Length)].prefab);
         
         nextCat.GetComponent<Rigidbody2D>().isKinematic = false;
-        catCannon.GetComponent<CatCannon>().LoadCat(nextCat, (1 + (1/round)) * catCooldown/4);
-        cats.Append(nextCat);
 
+        catCannon.GetComponent<CatCannon>().LoadCat(nextCat);
         // add to the score for the cat placed
         score += (int)nextCat.GetComponent<CatBase>().scoreValue;
+        cats.Add(nextCat);
 
         // generate the next cat to be shown on the cannon
         nextCat = Instantiate(catTypes[Random.Range(0, catTypes.Length)].prefab);
@@ -142,7 +147,7 @@ public class GameManager : MonoBehaviour
         // disable physics on the next cat
         nextCat.GetComponent<Rigidbody2D>().isKinematic = true;
 
-        
+
     }
 
     public void EndRound()
@@ -153,7 +158,7 @@ public class GameManager : MonoBehaviour
 
     void NewRound(){
         round++;
-        roundTimer = 60f;
+        roundTimer = 30f;
 
         // select up to 6 new cats
         selectedCats = catTypes.OrderBy(x => Random.value).Take(6).ToArray();
@@ -166,6 +171,7 @@ public class GameManager : MonoBehaviour
 
         // set catometer to 0.8 of itself
         catometer = catometer * 0.8f;
+        catometerSlider.UpdateValue(catometer);
     }
 
     public void SpawnCat(int catType = -1)
@@ -175,7 +181,7 @@ public class GameManager : MonoBehaviour
         GameObject cat = Instantiate(catTypes[catType].prefab);
         cat.transform.position = new Vector3(4,2,0);
         cat.GetComponent<CatBase>().Activate();
-        cats.Append(cat);
+        cats.Add(cat);
     }
 
     public void RemoveCat(GameObject cat)
@@ -187,7 +193,7 @@ public class GameManager : MonoBehaviour
     void DamageTower(float damage)
     {
         catometer += damage;
-        catometerSlider.value = catometer;
+        catometerSlider.UpdateValue(catometer);
         if (catometer >= 100)
             GameOver();
     }
@@ -204,14 +210,23 @@ public class GameManager : MonoBehaviour
     }
 
     public void PauseGame(){
-        if (paused){
-            Time.timeScale = 1;
-            paused = false;
+        //Prevent the player from spamming the pause button
+        if (pauseMenu.CanPause()){
+            paused = !paused;
+            //enable the pause menu screen
+            pauseMenu.SetPaused(paused);
         }
-        else{
-            Time.timeScale = 0;
-            paused = true;
-        }
-        pauseMenu.SetActive(paused);
     }
+
+    /// <summary>
+    /// Send an update request for the score
+    /// </summary>
+    private void UpdateScore()
+    {
+        if (scoreText != null)
+        {
+            scoreText.UpdateText(score);
+        }
+    }
+
 }

@@ -5,31 +5,28 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PauseButtonAnimation : MonoBehaviour
+public class mainMenuButtonAnimation : MonoBehaviour
 {
     private TextMeshProUGUI text;
-
-    public float scaleFactor = 1.2f;
-    public Vector3 initialTextScale;
     private Color initialTextColor;
-    public Color clickedTextColor = Color.green;
+    public Color clickedTextColor;
     public void Start()
     {
         text = GetComponentInChildren<TextMeshProUGUI>();
-        initialTextScale = text.transform.localScale;
         initialTextColor = text.color;
     }
 
+    //Shake the transform
     public void onPointerEnter(BaseEventData data)
     {
-        text.transform.DOScale(initialTextScale * scaleFactor, 0.2f).SetEase(Ease.OutCubic).SetUpdate(true);
+        transform.DOShakeRotation(0.5f, new Vector3(0, 0, 1), 10, 40, true, ShakeRandomnessMode.Harmonic).SetEase(Ease.InBack);
     }
 
+    //Reset to initialState
     public void onPointerExit(BaseEventData data)
     {
-        text.transform.DOScale(initialTextScale, 0.2f).SetEase(Ease.InCubic).SetUpdate(true);
+        transform.DORotate(Vector3.zero, 0.1f);
     }
-
     public void onPointerDown(BaseEventData data)
     {
         text.DOColor(clickedTextColor, 0.1f).SetUpdate(true);
