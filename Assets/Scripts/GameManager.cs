@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    public delegate void EndOfRound();
+    public static event EndOfRound OnEndOfRound;
+
     void Awake()
     {
         if (instance == null)
@@ -93,7 +96,8 @@ public class GameManager : MonoBehaviour
         if (roundTimer > 0)
             roundTimer -= Time.deltaTime;
         else
-            NewRound();
+            EndRound();
+            
     }
 
     void FireCat()
@@ -118,6 +122,12 @@ public class GameManager : MonoBehaviour
         nextCat.GetComponent<Rigidbody2D>().isKinematic = true;
 
         
+    }
+
+    public void EndRound()
+    {
+        OnEndOfRound();
+        NewRound();
     }
 
     void NewRound(){

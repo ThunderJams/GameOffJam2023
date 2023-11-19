@@ -59,4 +59,9 @@ public class DebugMenu : MonoBehaviour
     {
         GameManager.instance.SpawnCat(typeDropdown.value - 1);
     }
+
+    public void ForceEndRound()
+    {
+        GameManager.instance.EndRound();
+    }
 }
