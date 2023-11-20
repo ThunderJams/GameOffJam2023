@@ -29,7 +29,7 @@ public class CannonCatAnimation : MonoBehaviour
     {
         if (GameManager.instance != null)
         {
-            if(GameManager.instance.roundTimer < 15)
+            if(GameManager.instance.gameParameters.roundTimer < GameManager.instance.gameParameters.roundTimer/2)
             {
                 CurrentMode = CannonCatMode.PANIC;
             }

@@ -145,7 +145,6 @@ public class GameManager : MonoBehaviour
     {
         BaseTimeIncrement = 1 + (gameParameters.desiredRoundMaxDifficulty /(roundTimer+1)) * ((round+1) * gameParameters.incrementRate);
         FinalTimeIncrement = BaseTimeIncrement * Mathf.Lerp(1 + gameParameters.catOMeterVariance, 1 - gameParameters.catOMeterVariance, catometerSlider.getCatOMeterRatio()) * gameParameters.finalTimeMultiplier;
-        debugTimeIncrement.text = FinalTimeIncrement.ToString();
     }
 
     void FireCat()

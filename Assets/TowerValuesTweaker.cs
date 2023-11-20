@@ -12,7 +12,9 @@ public class TowerValuesTweaker : MonoBehaviour
     {
         yield return new WaitWhile(()=> { return GameManager.instance == null; });
         DishL.drag = GameManager.instance.gameParameters.dishLinearDrag;
+        DishL.mass = GameManager.instance.gameParameters.dishMass;
         DishR.drag = GameManager.instance.gameParameters.dishLinearDrag;
+        DishR.mass = GameManager.instance.gameParameters.dishMass;
         Beam.angularDrag = GameManager.instance.gameParameters.towerBeamDrag;
         Beam.mass = GameManager.instance.gameParameters.towerBeamMass;
     }

@@ -22,6 +22,7 @@ public class GameParameters : ScriptableObject
     public float towerBeamMass = 100;
     public float towerBeamDrag = 50;
     public float dishLinearDrag = 0;
+    public float dishMass = 1;
 
     //Round settings
     public int roundTimer = 30;
@@ -41,6 +42,7 @@ public class GameParameters : ScriptableObject
 
     //Overall cat size
     public float catScaleMultiplier = 1;
+    public float catMassAddition= 1;
 
     public float baseCatCooldown = 5f;
 

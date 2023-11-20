@@ -25,6 +25,7 @@ public class CatBase : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         gravity = rb.gravityScale;
         changeScale(GameManager.instance.gameParameters.catScaleMultiplier);
+        rb.mass += GameManager.instance.gameParameters.catMassAddition;
     }
 
     void Update()

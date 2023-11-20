@@ -158,9 +158,9 @@ DistanceJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 4.655814, y: 0}
-  m_ConnectedAnchor: {x: 1.1458073, y: 0.024942994}
+  m_ConnectedAnchor: {x: 1.068038, y: 0.13381994}
   m_AutoConfigureDistance: 1
-  m_Distance: 1.59143
+  m_Distance: 1.6054434
   m_MaxDistanceOnly: 0
 --- !u!232 &2905446164202125014
 DistanceJoint2D:
@@ -178,9 +178,9 @@ DistanceJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: -4.655814, y: 0}
-  m_ConnectedAnchor: {x: -1.6369472, y: 0.11349735}
+  m_ConnectedAnchor: {x: -0.85925436, y: 0.113497585}
   m_AutoConfigureDistance: 1
-  m_Distance: 1.8410575
+  m_Distance: 1.3002176
   m_MaxDistanceOnly: 0
 --- !u!232 &3050759242780357542
 DistanceJoint2D:
@@ -198,9 +198,9 @@ DistanceJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 4.655814, y: 0}
-  m_ConnectedAnchor: {x: -1.2624304, y: 0.05734414}
+  m_ConnectedAnchor: {x: -1.0446765, y: 0.07289785}
   m_AutoConfigureDistance: 1
-  m_Distance: 1.5668228
+  m_Distance: 1.4224868
   m_MaxDistanceOnly: 0
 --- !u!232 &1800680573020076031
 DistanceJoint2D:
@@ -218,9 +218,9 @@ DistanceJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: -4.655814, y: 0}
-  m_ConnectedAnchor: {x: 0.7150645, y: 0.101326734}
+  m_ConnectedAnchor: {x: 0.5311079, y: 0.17109251}
   m_AutoConfigureDistance: 1
-  m_Distance: 1.3884152
+  m_Distance: 1.3404758
   m_MaxDistanceOnly: 0
 --- !u!1 &2482983481584505327
 GameObject:
