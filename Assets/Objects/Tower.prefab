@@ -33,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.0009999275, y: -0.102, z: -0.031356867}
-  m_LocalScale: {x: 9, y: 0.15, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3643361870998839266}
@@ -79,8 +79,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.8313726, g: 0.6392157, b: 0.45098042, a: 1}
+  m_Sprite: {fileID: 21300000, guid: f5960d6c8981036488b6e25169d489ec, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -133,7 +133,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.1}
-  m_ConnectedAnchor: {x: 0.0009999275, y: -1.5536}
+  m_ConnectedAnchor: {x: 0.0009999275, y: -1.4685999}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -157,10 +157,10 @@ DistanceJoint2D:
   m_BreakTorque: Infinity
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0.5, y: 0}
-  m_ConnectedAnchor: {x: 1.5238638, y: 0.08889204}
+  m_Anchor: {x: 4.655814, y: 0}
+  m_ConnectedAnchor: {x: 1.1458073, y: 0.024942994}
   m_AutoConfigureDistance: 1
-  m_Distance: 1.8613681
+  m_Distance: 1.59143
   m_MaxDistanceOnly: 0
 --- !u!232 &2905446164202125014
 DistanceJoint2D:
@@ -177,10 +177,10 @@ DistanceJoint2D:
   m_BreakTorque: Infinity
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: -0.5, y: 0}
-  m_ConnectedAnchor: {x: -1.5461922, y: 0.103910774}
+  m_Anchor: {x: -4.655814, y: 0}
+  m_ConnectedAnchor: {x: -1.6369472, y: 0.11349735}
   m_AutoConfigureDistance: 1
-  m_Distance: 1.8882729
+  m_Distance: 1.8410575
   m_MaxDistanceOnly: 0
 --- !u!232 &3050759242780357542
 DistanceJoint2D:
@@ -197,10 +197,10 @@ DistanceJoint2D:
   m_BreakTorque: Infinity
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0.5, y: 0}
-  m_ConnectedAnchor: {x: -1.5492616, y: 0.105823934}
+  m_Anchor: {x: 4.655814, y: 0}
+  m_ConnectedAnchor: {x: -1.2624304, y: 0.05734414}
   m_AutoConfigureDistance: 1
-  m_Distance: 1.891884
+  m_Distance: 1.5668228
   m_MaxDistanceOnly: 0
 --- !u!232 &1800680573020076031
 DistanceJoint2D:
@@ -217,10 +217,10 @@ DistanceJoint2D:
   m_BreakTorque: Infinity
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: -0.5, y: 0}
-  m_ConnectedAnchor: {x: 1.571131, y: 0.120536506}
+  m_Anchor: {x: -4.655814, y: 0}
+  m_ConnectedAnchor: {x: 0.7150645, y: 0.101326734}
   m_AutoConfigureDistance: 1
-  m_Distance: 1.9182366
+  m_Distance: 1.3884152
   m_MaxDistanceOnly: 0
 --- !u!1 &2482983481584505327
 GameObject:
@@ -248,8 +248,8 @@ Transform:
   m_GameObject: {fileID: 2482983481584505327}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5147, y: 7.962922, z: 1}
+  m_LocalPosition: {x: 0, y: 0.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3643361870998839266}
@@ -295,8 +295,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -5
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.98823535, g: 0.69411767, b: 0.6509804, a: 1}
+  m_Sprite: {fileID: 21300000, guid: a0e2a72e129c34b40a9a48720016708c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -349,6 +349,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3643361870998839266}
     m_Modifications:
+    - target: {fileID: 426879676399341366, guid: a6e2bececab189441998ac23041aecd6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1df3f099a591ea04299c4421e5a0ce50, type: 3}
+    - target: {fileID: 584530775384120626, guid: a6e2bececab189441998ac23041aecd6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1df3f099a591ea04299c4421e5a0ce50, type: 3}
     - target: {fileID: 1551266665500058057, guid: a6e2bececab189441998ac23041aecd6, type: 3}
       propertyPath: m_Color.b
       value: 0.9215687
@@ -361,6 +369,14 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.9725491
       objectReference: {fileID: 0}
+    - target: {fileID: 2551855298616194600, guid: a6e2bececab189441998ac23041aecd6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2551855298616194600, guid: a6e2bececab189441998ac23041aecd6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5819119418400629515, guid: a6e2bececab189441998ac23041aecd6, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -371,7 +387,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5819119418400629515, guid: a6e2bececab189441998ac23041aecd6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.501
+      value: 4.745
       objectReference: {fileID: 0}
     - target: {fileID: 5819119418400629515, guid: a6e2bececab189441998ac23041aecd6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -412,6 +428,14 @@ PrefabInstance:
     - target: {fileID: 5819119418400629515, guid: a6e2bececab189441998ac23041aecd6, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6655775661996503379, guid: a6e2bececab189441998ac23041aecd6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6655775661996503379, guid: a6e2bececab189441998ac23041aecd6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8257666125452949776, guid: a6e2bececab189441998ac23041aecd6, type: 3}
       propertyPath: m_Name

@@ -117,8 +117,9 @@ public class GameManager : MonoBehaviour
         {
             nextCat = Instantiate(selectedCats[Random.Range(0, selectedCats.Length)].prefab);
         }
+        nextCat.SetActive(true);
         //GameObject cat = Instantiate(catTypes[Random.Range(0, catTypes.Length)].prefab);
-        
+
         nextCat.GetComponent<Rigidbody2D>().isKinematic = false;
         catCannon.GetComponent<CatCannon>().LoadCat(nextCat);
         // add to the score for the cat placed
@@ -128,6 +129,9 @@ public class GameManager : MonoBehaviour
         // generate the next cat to be shown on the cannon
         nextCat = Instantiate(catTypes[Random.Range(0, catTypes.Length)].prefab);
         nextCat.transform.position = catCannon.transform.position;
+        //For now disable the cat preview renderers 
+        nextCat.SetActive(false);
+
         // disable physics on the next cat
         nextCat.GetComponent<Rigidbody2D>().isKinematic = true;
 
