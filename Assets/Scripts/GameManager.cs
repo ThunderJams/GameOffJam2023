@@ -174,7 +174,7 @@ public class GameManager : MonoBehaviour
 
     public void EndRound()
     {
-        //OnEndOfRound();
+        OnEndOfRound();
         NewRound();
     }
 
