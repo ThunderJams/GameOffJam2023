@@ -528,6 +528,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 339473077243567309, guid: 0f0456af5d0c36045a81573edae2e6de, type: 3}
+      propertyPath: m_SortingOrder
+      value: -11
+      objectReference: {fileID: 0}
     - target: {fileID: 851899558971826064, guid: 0f0456af5d0c36045a81573edae2e6de, type: 3}
       propertyPath: m_Name
       value: BackgroundPrefab

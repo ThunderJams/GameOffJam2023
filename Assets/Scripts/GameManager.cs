@@ -149,9 +149,9 @@ public class GameManager : MonoBehaviour
         
         nextCat.GetComponent<Rigidbody2D>().isKinematic = false;
 
-        catCannon.GetComponent<CatCannon>().LoadCat(nextCat);
+        catCannon.GetComponent<CatCannon>().LoadCat(nextCat, gameParameters.cannonFuseBaseSpeed);
         // add to the score for the cat placed
-        score += (int)nextCat.GetComponent<CatBase>().scoreValue;
+        score += (int)(nextCat.GetComponent<CatBase>().scoreValue * gameParameters.baseCatDroppedScoreMultiplier);
         cats.Add(nextCat);
 
         // generate the next cat to be shown on the cannon
@@ -174,16 +174,16 @@ public class GameManager : MonoBehaviour
         roundTimer = gameParameters.roundTimer;
 
         // select up to 6 new cats
-        selectedCats = catTypes.OrderBy(x => Random.value).Take(6).ToArray();
+        selectedCats = catTypes.OrderBy(x => Random.value).Take(gameParameters.startingCatAmount).ToArray();
 
         //score += catsOnPlatform * catMultiplierSum;
         foreach (GameObject cat in cats){
-            score += (int)cat.GetComponent<CatBase>().scoreValue;
+            score += (int)(cat.GetComponent<CatBase>().scoreValue * gameParameters.baseCatDroppedScoreMultiplier);
         }
         //score += catsOnPlatform * catMultiplierSum;
 
         // set catometer to 0.8 of itself
-        catometer = catometer * 0.8f;
+        catometer = catometer * gameParameters.catOMeterDecreaseValue;
         catometerSlider.UpdateValue(catometer);
     }
 
@@ -197,9 +197,12 @@ public class GameManager : MonoBehaviour
         cats.Add(cat);
     }
 
-    public void RemoveCat(GameObject cat)
+    public void RemoveCat(GameObject cat, bool fall = false)
     {
-        DamageTower(cat.GetComponent<CatBase>().damage);
+        if (fall)
+        {
+            DamageTower(cat.GetComponent<CatBase>().damage);
+        }
         cats.Remove(cat);
     }
 

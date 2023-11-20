@@ -24,6 +24,7 @@ public class CatBase : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         gravity = rb.gravityScale;
+        changeScale(GameManager.instance.gameParameters.catScaleMultiplier);
     }
 
     void Update()
@@ -71,11 +72,12 @@ public class CatBase : MonoBehaviour
 
     void FallOffScreen()
     {
-        GameManager.instance.RemoveCat(gameObject);
+        GameManager.instance.RemoveCat(gameObject, true);
         Destroy(gameObject);
     }
-    private void OnDestroy()
+
+    void changeScale(float multiplier)
     {
-        GameManager.instance.RemoveCat(gameObject);
+        transform.localScale *= multiplier;
     }
 }

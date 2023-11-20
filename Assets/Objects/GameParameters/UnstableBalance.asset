@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a75bc8a6b514b0740ac505dfc2802039, type: 3}
-  m_Name: Normal Mode
+  m_Name: UnstableBalance
   m_EditorClassIdentifier: 
   presetName: Normal mode
   cannonPropellingStrength: 10
   cannonFuseBaseSpeed: 1.5
   minimumCatSpawnTimer: 0.5
   globalCatGravityMultiplier: 1
-  towerBeamMass: 100
-  towerBeamDrag: 50
+  towerBeamMass: 50
+  towerBeamDrag: 20
   dishLinearDrag: 0
   roundTimer: 30
   startingCatAmount: 4

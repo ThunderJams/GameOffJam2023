@@ -26,7 +26,7 @@ public class GameParameters : ScriptableObject
     //Round settings
     public int roundTimer = 30;
     public int startingCatAmount = 4;
-
+    [Range(0.1f, 1)] public float catOMeterDecreaseValue = 0.8f;
 
     //Time increment scaling
     public float incrementRate = 0.25f;
@@ -34,9 +34,9 @@ public class GameParameters : ScriptableObject
     public float catOMeterVariance = 0.25f;
 
     //Score values and multipliers
-    public float baseCatDroppedScore = 10;
+    public float baseCatDroppedScoreMultiplier = 1;
 
     //Overall cat size
-    public int catScaleMultiplier = 1;
+    public float catScaleMultiplier = 1;
 
 }
