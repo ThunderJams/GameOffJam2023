@@ -58,6 +58,7 @@ public class CatCannon : MonoBehaviour
 
     public void LoadCat(GameObject loadCat, float fuseTime = 1f)
     {
+        print(fuseTime);
         cat = loadCat;
         cat.transform.position = Vector3.Lerp(tip.transform.position, transform.position, 0.5f);
         cat.transform.rotation = tip.transform.rotation;
@@ -69,15 +70,17 @@ public class CatCannon : MonoBehaviour
 
         fuse = fuseTime;
         loadAnimTime = fuseTime / 3;
+
     }
 
     public void FireCat()
     {
         Debug.Log("Firing cat");
 
-        cat.GetComponent<Rigidbody2D>().gravityScale = cat.GetComponent<CatBase>().gravity;
+        cat.GetComponent<Rigidbody2D>().gravityScale = cat.GetComponent<CatBase>().gravity * GameManager.instance.gameParameters.globalCatGravityMultiplier;
         cat.transform.position = tip.transform.position;
-        cat.GetComponent<Rigidbody2D>().velocity = tip.transform.up * cannonStrength;
+
+        cat.GetComponent<Rigidbody2D>().velocity = tip.transform.up * GameManager.instance.gameParameters.cannonPropellingStrength;
         cat = null;
     }
 

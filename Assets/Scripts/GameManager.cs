@@ -14,6 +14,10 @@ public class GameManager : MonoBehaviour
     public delegate void EndOfRound();
     public static event EndOfRound OnEndOfRound;
 
+    /// <summary>
+    /// Data about the different game parameters
+    /// </summary>
+    public GameParameters gameParameters;
     void Awake()
     {
         if (instance == null)
@@ -58,7 +62,7 @@ public class GameManager : MonoBehaviour
 
     bool paused = false;
 
-    public float roundTimer = 60f;
+    float roundTimer;
 
     int activeBuccaneers = 0;
 
@@ -73,10 +77,19 @@ public class GameManager : MonoBehaviour
         get { return _score; }
         set { _score = value; UpdateScore(); }
     }
+
+    //Placeholder for now, the game goes faster the morerounds and the lower the catometer is 
+    //formulas are roughly :
+    //BaseTimeIncrement =  1 + floor(RoundTimer/15) * ((roundsSurvived+1) * incrementRate)
+    //FinalTimeIncrement = BaseTimeIncrement* lerp(1+catOMeterVariance,1-catOMeterVariance, catOMeterValue)
+
+    public float BaseTimeIncrement = 1;
+    public float FinalTimeIncrement = 1;
     void Start()
     {
         StartGame();
         cats = new List<GameObject>();
+        roundTimer = gameParameters.roundTimer;
     }
 
     void StartGame()
@@ -84,7 +97,7 @@ public class GameManager : MonoBehaviour
         round = 1;
 
         catometerSlider = catometerBar.GetComponent<CatOMeterSlider>();
-        selectedCats = catTypes.OrderBy(x => Random.value).Take(6).ToArray();
+        selectedCats = catTypes.OrderBy(x => Random.value).Take(gameParameters.startingCatAmount).ToArray();
     }
 
     // Update is called once per frame
@@ -107,9 +120,9 @@ public class GameManager : MonoBehaviour
         {
             catCooldown -= Time.deltaTime * (1 + (1/round));
         }
-        else
+        else if (roundTimer > 5)
         {
-            catCooldown = 5f;
+            catCooldown = gameParameters.baseCatCooldown / FinalTimeIncrement;
             for (int i = 0; i < activeBuccaneers; i++)
                 catCooldown *= 0.8f;
             FireCat();
@@ -123,7 +136,16 @@ public class GameManager : MonoBehaviour
             roundTimer -= Time.deltaTime;
         else
             EndRound();
-            
+
+        ComputeTimeIncrement();
+    }
+
+    public TextMeshProUGUI debugTimeIncrement;
+    public void ComputeTimeIncrement()
+    {
+        BaseTimeIncrement = 1 + (gameParameters.desiredRoundMaxDifficulty /(roundTimer+1)) * ((round+1) * gameParameters.incrementRate);
+        FinalTimeIncrement = BaseTimeIncrement * Mathf.Lerp(1 + gameParameters.catOMeterVariance, 1 - gameParameters.catOMeterVariance, catometerSlider.getCatOMeterRatio()) * gameParameters.finalTimeMultiplier;
+        debugTimeIncrement.text = FinalTimeIncrement.ToString();
     }
 
     void FireCat()
@@ -132,22 +154,18 @@ public class GameManager : MonoBehaviour
         {
             nextCat = Instantiate(selectedCats[Random.Range(0, selectedCats.Length)].prefab);
         }
-        nextCat.SetActive(true);
         //GameObject cat = Instantiate(catTypes[Random.Range(0, catTypes.Length)].prefab);
-
+        
         nextCat.GetComponent<Rigidbody2D>().isKinematic = false;
 
-        catCannon.GetComponent<CatCannon>().LoadCat(nextCat);
+        catCannon.GetComponent<CatCannon>().LoadCat(nextCat, gameParameters.cannonFuseBaseSpeed / FinalTimeIncrement);
         // add to the score for the cat placed
-        score += (int)nextCat.GetComponent<CatBase>().scoreValue;
+        score += (int)(nextCat.GetComponent<CatBase>().scoreValue * gameParameters.baseCatDroppedScoreMultiplier);
         cats.Add(nextCat);
 
         // generate the next cat to be shown on the cannon
         nextCat = Instantiate(catTypes[Random.Range(0, catTypes.Length)].prefab);
         nextCat.transform.position = catCannon.transform.position;
-        //For now disable the cat preview renderers 
-        nextCat.SetActive(false);
-
         // disable physics on the next cat
         nextCat.GetComponent<Rigidbody2D>().isKinematic = true;
 
@@ -162,19 +180,19 @@ public class GameManager : MonoBehaviour
 
     void NewRound(){
         round++;
-        roundTimer = 30f;
+        roundTimer = gameParameters.roundTimer;
 
         // select up to 6 new cats
-        selectedCats = catTypes.OrderBy(x => Random.value).Take(6).ToArray();
+        selectedCats = catTypes.OrderBy(x => Random.value).Take(gameParameters.startingCatAmount).ToArray();
 
         //score += catsOnPlatform * catMultiplierSum;
         foreach (GameObject cat in cats){
-            score += (int)cat.GetComponent<CatBase>().scoreValue;
+            score += (int)(cat.GetComponent<CatBase>().scoreValue * gameParameters.baseCatDroppedScoreMultiplier);
         }
         //score += catsOnPlatform * catMultiplierSum;
 
         // set catometer to 0.8 of itself
-        catometer = catometer * 0.8f;
+        catometer = catometer * gameParameters.catOMeterDecreaseValue;
         catometerSlider.UpdateValue(catometer);
     }
 
@@ -190,8 +208,11 @@ public class GameManager : MonoBehaviour
 
     public void RemoveCat(GameObject cat)
     {
-        DamageTower(cat.GetComponent<CatBase>().damage);
         cats.Remove(cat);
+    }
+    public void FallOffScreen(GameObject cat)
+    {
+        DamageTower(cat.GetComponent<CatBase>().damage);
     }
 
     void DamageTower(float damage)
