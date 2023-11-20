@@ -12,7 +12,6 @@ public class GhostCat : MonoBehaviour
 
     void EndOfRound()
     {
-        GameManager.instance.RemoveCat(gameObject);
         Destroy(gameObject);
     }
 

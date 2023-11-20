@@ -58,6 +58,7 @@ public class CatCannon : MonoBehaviour
 
     public void LoadCat(GameObject loadCat, float fuseTime = 1f)
     {
+        print(fuseTime);
         cat = loadCat;
         cat.transform.position = Vector3.Lerp(tip.transform.position, transform.position, 0.5f);
         cat.transform.rotation = tip.transform.rotation;

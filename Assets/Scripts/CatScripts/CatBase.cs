@@ -72,12 +72,16 @@ public class CatBase : MonoBehaviour
 
     void FallOffScreen()
     {
-        GameManager.instance.RemoveCat(gameObject, true);
+        GameManager.instance.FallOffScreen(gameObject);
         Destroy(gameObject);
     }
 
     void changeScale(float multiplier)
     {
         transform.localScale *= multiplier;
+    }
+    private void OnDestroy()
+    {
+        GameManager.instance.RemoveCat(gameObject);
     }
 }

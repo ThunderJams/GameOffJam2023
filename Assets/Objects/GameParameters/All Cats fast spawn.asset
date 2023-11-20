@@ -10,20 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a75bc8a6b514b0740ac505dfc2802039, type: 3}
-  m_Name: ManyCats
+  m_Name: All Cats fast spawn
   m_EditorClassIdentifier: 
   presetName: Normal mode
-  cannonPropellingStrength: 10
-  cannonFuseBaseSpeed: 1.5
+  cannonPropellingStrength: 5
+  cannonFuseBaseSpeed: 0.2
   minimumCatSpawnTimer: 0.5
-  globalCatGravityMultiplier: 1
-  towerBeamMass: 50
-  towerBeamDrag: 20
+  globalCatGravityMultiplier: 0.8
+  towerBeamMass: 70
+  towerBeamDrag: 40
   dishLinearDrag: 0
-  roundTimer: 30
-  startingCatAmount: 9
+  roundTimer: 20
+  startingCatAmount: 14
   catOMeterDecreaseValue: 0.8
-  incrementRate: 0.25
+  incrementRate: 0.5
+  desiredRoundMaxDifficulty: 3
+  finalTimeMultiplier: 0.5
   catOMeterVariance: 0.25
   baseCatDroppedScoreMultiplier: 1
-  catScaleMultiplier: 1
+  catScaleMultiplier: 2.2
+  baseCatCooldown: 1

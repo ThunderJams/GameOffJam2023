@@ -29,7 +29,10 @@ public class GameParameters : ScriptableObject
     [Range(0.1f, 1)] public float catOMeterDecreaseValue = 0.8f;
 
     //Time increment scaling
-    public float incrementRate = 0.25f;
+    public float incrementRate = 0.75f;
+    public float desiredRoundMaxDifficulty = 15;
+    public float finalTimeMultiplier = 0.5f;
+
     //The game is easier if the scratchOMeter is too high
     public float catOMeterVariance = 0.25f;
 
@@ -38,5 +41,7 @@ public class GameParameters : ScriptableObject
 
     //Overall cat size
     public float catScaleMultiplier = 1;
+
+    public float baseCatCooldown = 5f;
 
 }

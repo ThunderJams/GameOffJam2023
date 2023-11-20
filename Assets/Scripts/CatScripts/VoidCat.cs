@@ -34,13 +34,11 @@ public class VoidCat : MonoBehaviour
             // Check if raycast hit another cat
             if (hit.collider.gameObject.GetComponent<CatBase>() != null && hit.collider.gameObject.GetComponent<CatBase>() != GetComponent<CatBase>() && hit.collider.gameObject.GetComponent<CatBase>().activated)
             {
-                // Eat cats
-                GameManager.instance.RemoveCat(hit.collider.gameObject);
+                // Eat 
                 Destroy(hit.collider.gameObject);
                 catsToEat--;
                 if (catsToEat <= 0)
                 {
-                    GameManager.instance.RemoveCat(gameObject);
                     Destroy(gameObject);
                 }
             }

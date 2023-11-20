@@ -63,4 +63,9 @@ public class CatOMeterSlider : MonoBehaviour
         valueChangedSequence.Append(handleRect.DORotate(new Vector3(0, 0, -idleMaxAngle*2), 0.5f)).onComplete += ()=> { handleAnimationLoop(); };
 
     }
+
+    public float getCatOMeterRatio()
+    {
+        return slider.value / slider.maxValue;
+    }
 }

@@ -120,9 +120,9 @@ public class GameManager : MonoBehaviour
         {
             catCooldown -= Time.deltaTime * (1 + (1/round));
         }
-        else
+        else if (roundTimer > 5)
         {
-            catCooldown = 5f;
+            catCooldown = gameParameters.baseCatCooldown / FinalTimeIncrement;
             for (int i = 0; i < activeBuccaneers; i++)
                 catCooldown *= 0.8f;
             FireCat();
@@ -136,7 +136,16 @@ public class GameManager : MonoBehaviour
             roundTimer -= Time.deltaTime;
         else
             EndRound();
-            
+
+        ComputeTimeIncrement();
+    }
+
+    public TextMeshProUGUI debugTimeIncrement;
+    public void ComputeTimeIncrement()
+    {
+        BaseTimeIncrement = 1 + (gameParameters.desiredRoundMaxDifficulty /(roundTimer+1)) * ((round+1) * gameParameters.incrementRate);
+        FinalTimeIncrement = BaseTimeIncrement * Mathf.Lerp(1 + gameParameters.catOMeterVariance, 1 - gameParameters.catOMeterVariance, catometerSlider.getCatOMeterRatio()) * gameParameters.finalTimeMultiplier;
+        debugTimeIncrement.text = FinalTimeIncrement.ToString();
     }
 
     void FireCat()
@@ -149,7 +158,7 @@ public class GameManager : MonoBehaviour
         
         nextCat.GetComponent<Rigidbody2D>().isKinematic = false;
 
-        catCannon.GetComponent<CatCannon>().LoadCat(nextCat, gameParameters.cannonFuseBaseSpeed);
+        catCannon.GetComponent<CatCannon>().LoadCat(nextCat, gameParameters.cannonFuseBaseSpeed / FinalTimeIncrement);
         // add to the score for the cat placed
         score += (int)(nextCat.GetComponent<CatBase>().scoreValue * gameParameters.baseCatDroppedScoreMultiplier);
         cats.Add(nextCat);
@@ -165,7 +174,7 @@ public class GameManager : MonoBehaviour
 
     public void EndRound()
     {
-        OnEndOfRound();
+        //OnEndOfRound();
         NewRound();
     }
 
@@ -197,13 +206,13 @@ public class GameManager : MonoBehaviour
         cats.Add(cat);
     }
 
-    public void RemoveCat(GameObject cat, bool fall = false)
+    public void RemoveCat(GameObject cat)
     {
-        if (fall)
-        {
-            DamageTower(cat.GetComponent<CatBase>().damage);
-        }
         cats.Remove(cat);
+    }
+    public void FallOffScreen(GameObject cat)
+    {
+        DamageTower(cat.GetComponent<CatBase>().damage);
     }
 
     void DamageTower(float damage)
