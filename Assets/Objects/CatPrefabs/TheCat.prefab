@@ -26,8 +26,8 @@ Transform:
   m_GameObject: {fileID: 8246373778597907812}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.004, y: -0.6, z: 0}
-  m_LocalScale: {x: 0.6151, y: 0.6151, z: 0.6151}
+  m_LocalPosition: {x: -0.004, y: -0.164, z: 0}
+  m_LocalScale: {x: 0.5009251, y: 0.5009251, z: 0.5009251}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3154520594230151106}
@@ -92,9 +92,37 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 354736480871560275, guid: 80d18e4edb4d59340be0e8c9dcc4cacb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.355
+      objectReference: {fileID: 0}
     - target: {fileID: 1093442841305088660, guid: 80d18e4edb4d59340be0e8c9dcc4cacb, type: 3}
       propertyPath: m_Name
       value: TheCat
+      objectReference: {fileID: 0}
+    - target: {fileID: 3404624267836150906, guid: 80d18e4edb4d59340be0e8c9dcc4cacb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3571604356825904930, guid: 80d18e4edb4d59340be0e8c9dcc4cacb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: afaeea9a8e0b7434daa8523e4a9907a0, type: 3}
+    - target: {fileID: 3571604356825904930, guid: 80d18e4edb4d59340be0e8c9dcc4cacb, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3571604356825904930, guid: 80d18e4edb4d59340be0e8c9dcc4cacb, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3571604356825904930, guid: 80d18e4edb4d59340be0e8c9dcc4cacb, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3598205291745047915, guid: 80d18e4edb4d59340be0e8c9dcc4cacb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5053013224562465247, guid: 80d18e4edb4d59340be0e8c9dcc4cacb, type: 3}
       propertyPath: m_Sprite

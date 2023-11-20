@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
 
     bool paused = false;
 
-    float roundTimer = 60f;
+    public float roundTimer = 60f;
 
     int activeBuccaneers = 0;
 

@@ -41,7 +41,6 @@ public class CatOMeterSlider : MonoBehaviour
             loopTween.Kill();
         }
         loopTween = handleRect.DORotate(handleRect.eulerAngles + new Vector3(0, 0, idleMaxAngle + idleMaxAngle  * chaosRatio) *2, idleDuration *(1.5f-chaosRatio)).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutElastic,0.2f);
-        loopTween.onUpdate += () => {};
         loopTween.Play();
     }
 
