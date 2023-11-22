@@ -8,6 +8,11 @@ using UnityEngine;
 /// </summary>
 public class ClickManager : MonoBehaviour
 {
+    public Texture2D cursorTexture;
+    public Texture2D clickedCursorTexture;
+
+    public Vector2 cursorHotspot;
+
     public static ClickManager instance;
     // Start is called before the first frame update
 
@@ -38,6 +43,7 @@ public class ClickManager : MonoBehaviour
             clickParticleSystems.Add(particle);
 
         }
+        Cursor.SetCursor(cursorTexture, cursorHotspot, CursorMode.ForceSoftware);
     }
 
     // Update is called once per frame
@@ -53,6 +59,11 @@ public class ClickManager : MonoBehaviour
             particleToUse.transform.position =new Vector3(screenToWorld.x,screenToWorld.y,0);
             particleToUse.Play();
             currentClickParticleIndex = (currentClickParticleIndex + 1) % clickParticleSystems.Count;
-        }   
+            Cursor.SetCursor(clickedCursorTexture, cursorHotspot, CursorMode.ForceSoftware);
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            Cursor.SetCursor(cursorTexture, cursorHotspot, CursorMode.ForceSoftware);
+        }
     }
 }

@@ -6,11 +6,21 @@ using UnityEngine.SceneManagement;
 
 public class SettingsManager : MonoBehaviour
 {
+    public static SettingsManager instance;
+
     String activeScene;
-    
+    public float textScaleMultiplier = 1f;
     // Start is called before the first frame update
     void Awake()
     {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         DontDestroyOnLoad(gameObject);
         // set first child to inactive
         transform.GetChild(0).gameObject.SetActive(false);

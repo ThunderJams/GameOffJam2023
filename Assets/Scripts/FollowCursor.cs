@@ -5,6 +5,8 @@ using UnityEngine;
 public class FollowCursor : MonoBehaviour
 {
     ParticleSystem ps;
+
+    public Vector3 offset;
     void Start()
     {
         ps = GetComponent<ParticleSystem>();
@@ -18,7 +20,7 @@ public class FollowCursor : MonoBehaviour
         Vector3 mousePos = Input.mousePosition;
 
         // Convert the screen space position of the cursor to world space (2D)
-        mousePos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, -Camera.main.transform.position.z));
+        mousePos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, -Camera.main.transform.position.z)) + offset;
 
         
         // Calculate the direction from the particle system to the cursor position

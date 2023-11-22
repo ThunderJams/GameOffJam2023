@@ -17,9 +17,10 @@ MonoBehaviour:
   cannonFuseBaseSpeed: 1.5
   minimumCatSpawnTimer: 0.5
   globalCatGravityMultiplier: 1
-  towerBeamMass: 70
-  towerBeamDrag: 30
+  towerBeamMass: 20
+  towerBeamDrag: 20
   dishLinearDrag: 0
+  dishMass: 0.5
   roundTimer: 30
   startingCatAmount: 4
   catOMeterDecreaseValue: 0.8
@@ -29,4 +30,5 @@ MonoBehaviour:
   catOMeterVariance: 0.25
   baseCatDroppedScoreMultiplier: 1
   catScaleMultiplier: 1.6
+  catMassAddition: 0.1
   baseCatCooldown: 5

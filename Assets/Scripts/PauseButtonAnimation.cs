@@ -23,6 +23,7 @@ public class PauseButtonAnimation : MonoBehaviour
     public void onPointerEnter(BaseEventData data)
     {
         text.transform.DOScale(initialTextScale * scaleFactor, 0.2f).SetEase(Ease.OutCubic).SetUpdate(true);
+        AudioManager.instance.PlaySound("Click", 0.5f, 1.2f);
     }
 
     public void onPointerExit(BaseEventData data)
@@ -33,6 +34,7 @@ public class PauseButtonAnimation : MonoBehaviour
     public void onPointerDown(BaseEventData data)
     {
         text.DOColor(clickedTextColor, 0.1f).SetUpdate(true);
+        AudioManager.instance.PlaySound("Click", 1f, .6f);
     }
 
     public void onPointerUp(BaseEventData data)
