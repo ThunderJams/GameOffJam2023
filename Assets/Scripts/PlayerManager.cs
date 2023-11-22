@@ -51,6 +51,7 @@ public class PlayerManager : MonoBehaviour
                 {
                     heldCat = hit.collider.gameObject;
                     holding = true;
+                    heldCat.GetComponent<CatBase>().PickUp(); 
                 }
                 
             }

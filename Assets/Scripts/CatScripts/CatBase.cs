@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -20,6 +21,12 @@ public class CatBase : MonoBehaviour
 
     public float scoreValue = 10;
 
+
+
+    public AudioClip pickedUpSound;
+    public AudioClip fallOffSound;
+    public SpriteRenderer sprite;
+    Tween catPickedUpTween;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -73,6 +80,7 @@ public class CatBase : MonoBehaviour
 
     void FallOffScreen()
     {
+        AudioManager.instance.PlaySound(fallOffSound.name.ToString());
         GameManager.instance.FallOffScreen(gameObject);
         Destroy(gameObject);
     }
@@ -83,6 +91,18 @@ public class CatBase : MonoBehaviour
     }
     private void OnDestroy()
     {
-        GameManager.instance.RemoveCat(gameObject);
+        GameManager.instance?.RemoveCat(gameObject);
     }
+
+    public void PickUp()
+    {
+        AudioManager.instance.PlaySound(pickedUpSound.name.ToString(),1,Random.Range(0.90f,1.1f));
+        if (catPickedUpTween == null)
+        {
+            catPickedUpTween = sprite.transform.DOPunchScale(new Vector3(0.5f, 0.5f, 0.5f), 0.5f, 1).SetEase(Ease.InOutElastic, 0.2f);
+            catPickedUpTween.onComplete += () => { catPickedUpTween = null; };
+
+        }
+    }
+
 }

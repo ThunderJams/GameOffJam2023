@@ -177,7 +177,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.004268378, y: -0.8256012}
-  m_ConnectedAnchor: {x: -0.004268378, y: 1.7873987}
+  m_ConnectedAnchor: {x: -0.004268378, y: -0.2026012}
   m_UseMotor: 1
   m_Motor:
     m_MotorSpeed: 0
@@ -318,6 +318,7 @@ MonoBehaviour:
   spriteCalm: {fileID: 21300000, guid: 76ebd4dcc45cbd545bf473f4000a5c5b, type: 3}
   spritePanic: {fileID: 21300000, guid: 5676695a30d57b94f8101ace53b39572, type: 3}
   catIdleShakeScale: {x: 1, y: 0.8, z: 1}
+  catPanicShakeScale: {x: 1, y: 0.7, z: 1}
 --- !u!1 &8785886143033711465
 GameObject:
   m_ObjectHideFlags: 0
