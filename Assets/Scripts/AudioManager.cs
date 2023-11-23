@@ -90,7 +90,8 @@ public class AudioManager : MonoBehaviour
         AudioClip music = musicList.Where((AudioClip x) => x.name.ToUpper() == musicName.ToUpper()).First();
         if (music != null)
         {
-            musicAudioSource.PlayOneShot(music);
+            musicAudioSource.clip = music;
+            musicAudioSource.Play();
         }
         else
         {

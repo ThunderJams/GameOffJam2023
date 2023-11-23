@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -72,10 +73,15 @@ public class CatCannon : MonoBehaviour
 
     }
 
+    Tween cannonFireTween;
     public void FireCat()
     {
-        Debug.Log("Firing cat");
-
+        AudioManager.instance?.PlaySound("Canon_sound_2", 1, Random.Range(0.95f, 1.05f));
+        if (cannonFireTween == null)
+        {
+            cannonFireTween = cannon.transform.DOPunchScale(new Vector3(0,0.2f,0), 0.5f, 1).SetEase(Ease.InOutElastic, 0.2f);
+            cannonFireTween.onComplete += () => { cannonFireTween = null; };
+        }
         cat.GetComponent<Rigidbody2D>().gravityScale = cat.GetComponent<CatBase>().gravity * GameManager.instance.gameParameters.globalCatGravityMultiplier;
         cat.transform.position = tip.transform.position;
 

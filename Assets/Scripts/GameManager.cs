@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI roundText;
     [SerializeField] ScoreUpdateText scoreText;
     //Timer countdown text
-    [SerializeField] TextMeshProUGUI timerText;
+    [SerializeField] Image timerImage;
 
     CatOMeterSlider catometerSlider;
 
@@ -100,6 +100,7 @@ public class GameManager : MonoBehaviour
         selectedCats = catTypes.OrderBy(x => Random.value).Take(gameParameters.startingCatAmount).ToArray();
     }
 
+    private bool ticking = false;
     // Update is called once per frame
     void Update()
     {
@@ -110,10 +111,10 @@ public class GameManager : MonoBehaviour
         //    //scoreText.text = "Score: " + score.ToString();
         //    scoreText.UpdateText(score);
         //}
-        if (timerText != null)
+        if (timerImage != null)
         {
             //update the Timer text with the round timer 
-            timerText.text = System.Math.Round(roundTimer).ToString();
+            timerImage.fillAmount = roundTimer / gameParameters.roundTimer;
         }
 
         if (catCooldown > 0)
@@ -126,6 +127,11 @@ public class GameManager : MonoBehaviour
             for (int i = 0; i < activeBuccaneers; i++)
                 catCooldown *= 0.8f;
             FireCat();
+        }
+        if (roundTimer < 5 && ! ticking)
+        {
+            ticking = true;
+            AudioManager.instance?.PlaySound("5_second_Clock");
         }
 
         if (Input.GetButtonDown("Pause")){
@@ -140,7 +146,6 @@ public class GameManager : MonoBehaviour
         ComputeTimeIncrement();
     }
 
-    public TextMeshProUGUI debugTimeIncrement;
     public void ComputeTimeIncrement()
     {
         BaseTimeIncrement = 1 + (gameParameters.desiredRoundMaxDifficulty /(roundTimer+1)) * ((round+1) * gameParameters.incrementRate);
@@ -176,6 +181,7 @@ public class GameManager : MonoBehaviour
     public void EndRound()
     {
         OnEndOfRound();
+        AudioManager.instance?.PlaySound("dRUM_SHOT", 1, 1);
         NewRound();
     }
 
@@ -195,6 +201,9 @@ public class GameManager : MonoBehaviour
         // set catometer to 0.8 of itself
         catometer = catometer * gameParameters.catOMeterDecreaseValue;
         catometerSlider.UpdateValue(catometer);
+
+
+        ticking = false;
     }
 
     public void SpawnCat(int catType = -1)

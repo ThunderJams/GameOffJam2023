@@ -2027,7 +2027,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2395810629708951307}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: SettingsButton
+        m_MethodName: CatalogueButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

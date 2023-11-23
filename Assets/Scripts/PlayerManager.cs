@@ -66,7 +66,10 @@ public class PlayerManager : MonoBehaviour
         //Rotat cat with right click
         if (Input.GetMouseButton(1) && holding == true)
         {
-            heldCat.transform.Rotate(0, 0, 300 * Time.deltaTime);
+            if (heldCat.GetComponent<CatBase>().CanRotate)
+            {
+                heldCat.transform.Rotate(0, 0, 300 * Time.deltaTime);
+            }
         }
     }
 }

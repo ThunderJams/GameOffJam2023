@@ -36,6 +36,11 @@ public class SceneManage : MonoBehaviour
         settingsManager.GetComponent<SettingsManager>().EnableSettings();
     }
 
+    public void OnCatalogueButtonClicked()
+    {
+        CatalogueManager.instance.EnableCatalogue();
+            
+    }
     public void OnQuitButtonClicked(){
         Application.Quit();
     }

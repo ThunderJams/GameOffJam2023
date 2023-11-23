@@ -27,7 +27,7 @@ public class SettingsTweaker : MonoBehaviour
         masterSlider.value = PlayerPrefs.GetFloat("MasterVolume", 0.6f) * masterSlider.maxValue;
         musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 0.7f) * masterSlider.maxValue;
         sfxSlider.value = PlayerPrefs.GetFloat("SoundVolume", 0.7f) * masterSlider.maxValue;
-        fontSlider.value = map(PlayerPrefs.GetFloat("FontScale", 0.5f), defaultFontScale, 1 + defaultFontScale, fontSlider.minValue, fontSlider.maxValue);
+        fontSlider.value = map(PlayerPrefs.GetFloat("FontScale", 1f), defaultFontScale, 1 + defaultFontScale, fontSlider.minValue, fontSlider.maxValue);
         OnTextScaleValueChanged(fontSlider);
        initialized = true;
     }

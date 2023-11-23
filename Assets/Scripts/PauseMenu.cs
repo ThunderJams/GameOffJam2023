@@ -107,4 +107,9 @@ public class PauseMenu : MonoBehaviour
         // enable the settings manager
         settingsManager.GetComponent<SettingsManager>().EnableSettings();
     }
+
+    public void CatalogueButton()
+    {
+        CatalogueManager.instance.EnableCatalogue();
+    }
 }

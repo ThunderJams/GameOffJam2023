@@ -29,6 +29,6 @@ MonoBehaviour:
   finalTimeMultiplier: 0.5
   catOMeterVariance: 0.25
   baseCatDroppedScoreMultiplier: 1
-  catScaleMultiplier: 1.6
+  catScaleMultiplier: 0.85
   catMassAddition: 0.1
   baseCatCooldown: 5
