@@ -98,6 +98,13 @@ public class GameManager : MonoBehaviour
 
         catometerSlider = catometerBar.GetComponent<CatOMeterSlider>();
         selectedCats = catTypes.OrderBy(x => Random.value).Take(gameParameters.startingCatAmount).ToArray();
+        foreach (CatType cats in selectedCats)
+        {
+            if (!cats.seen)
+            {
+                cats.seen = true;
+            }
+        }
     }
 
     private bool ticking = false;
@@ -195,6 +202,13 @@ public class GameManager : MonoBehaviour
         //score += catsOnPlatform * catMultiplierSum;
         foreach (GameObject cat in cats){
             score += (int)(cat.GetComponent<CatBase>().scoreValue * gameParameters.baseCatDroppedScoreMultiplier);
+        }
+        foreach (CatType cats in selectedCats)
+        {
+            if (!cats.seen)
+            {
+                cats.seen = true;
+            }
         }
         //score += catsOnPlatform * catMultiplierSum;
 
