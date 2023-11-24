@@ -49,7 +49,7 @@ public class CatCannon : MonoBehaviour
             loadAnimTime = 0;
 
         cat.transform.position = Vector3.Lerp(tip.transform.position, transform.position, loadAnimTime);
-        cat.transform.rotation = tip.transform.rotation;
+        cat.transform.eulerAngles = new Vector3(0, 0, 90) + tip.transform.eulerAngles;
 
         if (fuse > 0)
             fuse -= Time.deltaTime;
@@ -60,9 +60,10 @@ public class CatCannon : MonoBehaviour
     public void LoadCat(GameObject loadCat, float fuseTime = 1f)
     {
         cat = loadCat;
-        cat.transform.position = Vector3.Lerp(tip.transform.position, transform.position, 0.5f);
-        cat.transform.rotation = tip.transform.rotation;
-        foreach(SpriteRenderer sr in cat.GetComponentsInChildren<SpriteRenderer>())
+        cat.transform.position = Vector3.Lerp(tip.transform.position, transform.position, 0.5f); 
+        cat.transform.eulerAngles = new Vector3(0, 0, 90) + tip.transform.eulerAngles ;
+
+        foreach (SpriteRenderer sr in cat.GetComponentsInChildren<SpriteRenderer>())
             sr.sortingOrder = 0;
         cat.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         cat.GetComponent<Rigidbody2D>().angularVelocity = 0;

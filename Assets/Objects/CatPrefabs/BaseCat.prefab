@@ -138,6 +138,10 @@ MonoBehaviour:
   gravity: 0
   onDish: 0
   scoreValue: 10
+  pickedUpSound: {fileID: 0}
+  fallOffSound: {fileID: 0}
+  sprite: {fileID: 0}
+  CanRotate: 1
 --- !u!50 &4932147813124258176
 Rigidbody2D:
   serializedVersion: 4
@@ -163,7 +167,7 @@ Rigidbody2D:
     m_Bits: 72
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &375436788488399670
 CircleCollider2D:
