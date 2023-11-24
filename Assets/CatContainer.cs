@@ -20,8 +20,6 @@ public class CatContainer : MonoBehaviour
         type = t;
         if (type.prefab.GetComponent<CatBase>().sprite != null)
             catSprite.sprite = type.prefab.GetComponent<CatBase>().sprite?.sprite;
-        else
-            print("Cat is null");
         RefreshCat();
     }
     public void RefreshCat()

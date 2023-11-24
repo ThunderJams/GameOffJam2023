@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: TheRedDemon
   m_EditorClassIdentifier: 
   catName: The Red Demon
-  description: 
+  description: Hates the white angels! Will cause mayhem if next to one another
   prefab: {fileID: 1682211924299110083, guid: d395e05f4bf4ccb42bb3a5d6d501525a, type: 3}
-  seen: 0
+  seen: 1

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Flatty
   m_EditorClassIdentifier: 
   catName: Flatty
-  description: 
+  description: Look at that little pancake!
   prefab: {fileID: 2308074261881401605, guid: 5c22648d3a567ad4ca44f2ddb41f2a7d, type: 3}
-  seen: 0
+  seen: 1

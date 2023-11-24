@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: StickyCat
   m_EditorClassIdentifier: 
   catName: Sticky Cat
-  description: 
+  description: He is too sticky, whatch where you stick him!
   prefab: {fileID: 1791078804657625738, guid: 180ab2118d593a948ac837036fa75dff, type: 3}
-  seen: 0
+  seen: 1

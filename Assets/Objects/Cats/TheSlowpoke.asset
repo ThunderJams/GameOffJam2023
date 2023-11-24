@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: TheSlowpoke
   m_EditorClassIdentifier: 
   catName: The Slowpoke
-  description: 
+  description: " Such a lazy cat, they sleep all the time\u2026"
   prefab: {fileID: 891724735386990482, guid: 9b013c0fd92d9464ab292d0b459d7b50, type: 3}
-  seen: 0
+  seen: 1

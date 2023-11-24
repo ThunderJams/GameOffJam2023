@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: BallOfFluff
   m_EditorClassIdentifier: 
   catName: Ball Of Fluff
-  description: 
+  description: The roundest of all, just baked and out of the oven.
   prefab: {fileID: 2308074261881401605, guid: 4363aedafa5b9754aa9182c1c19cd6a2, type: 3}
-  seen: 0
+  seen: 1

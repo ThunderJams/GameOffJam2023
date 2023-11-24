@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -13,12 +14,24 @@ public class CatalogueGrid : MonoBehaviour
 
     public List<CatType> cats;
     public List<GameObject> catContainers;
+
+    [SerializeField] TextMeshProUGUI catName;
+    [SerializeField] TextMeshProUGUI catDescription;
+    [SerializeField] Image catImage;
+
+    public float soundMaxCooldown = 0.3f;
+    public float soundCooldown = 0f;
     // Start is called before the first frame update
     void Start()
-    { 
-
-        CreateGrid();
+    {
+        catImage.transform.DOShakeRotation(2, new Vector3(0, 0, 4), 2, 1).SetDelay(1).SetLoops(-1);
+        catImage.transform.DOLocalJump(new Vector3(0, 0, 0), 30, 1, 3).SetDelay(3).SetLoops(-1).SetEase(Ease.InQuart);
         RefreshGrid();
+    }
+    public void Update()
+    {
+        if (soundCooldown>0)
+            soundCooldown -= Time.deltaTime;
     }
 
 
@@ -93,9 +106,6 @@ public class CatalogueGrid : MonoBehaviour
         }
     }
 
-    [SerializeField] TextMeshProUGUI catName;
-    [SerializeField] TextMeshProUGUI catDescription;
-    [SerializeField] Image catImage;
     public void DisplayCat(CatContainer catContainer)
     {
         CatType cat = catContainer.type;
@@ -108,6 +118,11 @@ public class CatalogueGrid : MonoBehaviour
         if (cat.seen)
         {
             catImage.color = Color.white;
+            if(soundCooldown<= 0)
+            {
+                AudioManager.instance.PlaySound(cat.prefab.GetComponent<CatBase>().pickedUpSound.name);
+                soundCooldown = soundMaxCooldown;
+            }
         }
         else
         {

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: IcyCat
   m_EditorClassIdentifier: 
   catName: Icy Cat
-  description: 
+  description: Watch out for their slipperyness!
   prefab: {fileID: 5674373850892476412, guid: 7d4d529fe74bd2d46ba7db42a0d62eb7, type: 3}
-  seen: 0
+  seen: 1

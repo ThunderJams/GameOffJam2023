@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: TheHisser
   m_EditorClassIdentifier: 
   catName: The Hisser
-  description: 
+  description: Got scared by something. Or someone. or nothing, who knows!
   prefab: {fileID: 2308074261881401605, guid: eef64eeeacd93fd4baf70c4c23b994b5, type: 3}
-  seen: 0
+  seen: 1

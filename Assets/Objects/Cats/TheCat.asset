@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: TheCat
   m_EditorClassIdentifier: 
   catName: The Cat
-  description: 
+  description: He is your standard issue cat!
   prefab: {fileID: 2308074261881401605, guid: 0806939744a3d9f408697c8aa855b762, type: 3}
-  seen: 0
+  seen: 1

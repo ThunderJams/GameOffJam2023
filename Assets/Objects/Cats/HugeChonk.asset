@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: HugeChonk
   m_EditorClassIdentifier: 
   catName: Huge Chonk
-  description: Dear lord he so fat
+  description: He is on a diet. But he is getting fatter anyway. Who is feeding this
+    guy?
   prefab: {fileID: 2308074261881401605, guid: a9cd466a3e004794a8c808f67b986aaa, type: 3}
   seen: 1

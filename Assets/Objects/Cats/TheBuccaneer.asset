@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: TheBuccaneer
   m_EditorClassIdentifier: 
   catName: The Buccaneer
-  description: 
+  description: Yarr! The cannon will shoot more often.
   prefab: {fileID: 18502441503884944, guid: 73f3e00a979c44c4198c97a08a390fc8, type: 3}
-  seen: 0
+  seen: 1
