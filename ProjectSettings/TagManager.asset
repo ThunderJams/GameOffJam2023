@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Cat
   - Settings
+  - Catalogue
   layers:
   - Default
   - TransparentFX

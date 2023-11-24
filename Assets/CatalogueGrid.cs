@@ -44,10 +44,16 @@ public class CatalogueGrid : MonoBehaviour
             currentIndex++;
         }
     }
-
+    public void DeleteGrid()
+    {
+        foreach (GameObject catCon in catContainers)
+        {
+            Destroy(catCon);
+        }
+    }
     public void RefreshGrid()
     {
-
+        DisplayPage(currentPageIndex);
     }
     int maxPages;
     int currentPageIndex = 0;
@@ -96,7 +102,8 @@ public class CatalogueGrid : MonoBehaviour
 
         if (cat.prefab.GetComponent<CatBase>().sprite != null)
             catImage.sprite = cat.prefab.GetComponent<CatBase>().sprite.sprite;
-        catName.text = cat.name;
+        catName.text = cat.catName;
+        print(cat.name);
         catDescription.text = cat.description;
         if (cat.seen)
         {

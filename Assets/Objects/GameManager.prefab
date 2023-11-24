@@ -44,28 +44,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dd97ff89b80585478acec728c8796b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameParameters: {fileID: 0}
   catCannon: {fileID: 0}
   catTypes:
-  - {fileID: 11400000, guid: 3708a5ee3b6fe2f45abdbe0d3016e8f4, type: 2}
   - {fileID: 11400000, guid: 333925a59a7ae6249b3a961d90069d6c, type: 2}
-  - {fileID: 11400000, guid: 1089f5ff016959b4d935731a4477628c, type: 2}
-  - {fileID: 11400000, guid: 32fa5bd54eedf3a4f9f61017915297d8, type: 2}
-  - {fileID: 11400000, guid: 5c32bcb2145cf444798fff011812b256, type: 2}
-  - {fileID: 11400000, guid: 44abcef092302df4f88e881e1a279b75, type: 2}
-  - {fileID: 11400000, guid: 553d8479adbb2b141b9ef7a49cbecd0a, type: 2}
-  - {fileID: 11400000, guid: 75ae9e917ea14294382f4bb0aaca8756, type: 2}
-  - {fileID: 11400000, guid: b2d1a4a97cc58864fa625001a6c41098, type: 2}
-  - {fileID: 11400000, guid: bbe436d870fa8bb4b96f4f424c792c21, type: 2}
-  - {fileID: 11400000, guid: 44dce3ce18935e64f923b5041659f54a, type: 2}
+  - {fileID: 11400000, guid: 652e2be69b89a5040978f25068fd0551, type: 2}
   - {fileID: 11400000, guid: 33928464b9eb71543974bf3183031334, type: 2}
+  - {fileID: 11400000, guid: 1089f5ff016959b4d935731a4477628c, type: 2}
+  - {fileID: 11400000, guid: 44dce3ce18935e64f923b5041659f54a, type: 2}
+  - {fileID: 11400000, guid: d27e9a3612fd94943aabb09a99fb5305, type: 2}
+  - {fileID: 11400000, guid: 5c32bcb2145cf444798fff011812b256, type: 2}
   - {fileID: 11400000, guid: 2a9a5d48fcddebd44bb5ad8aa40d767b, type: 2}
+  - {fileID: 11400000, guid: 44abcef092302df4f88e881e1a279b75, type: 2}
   - {fileID: 11400000, guid: 8c01013a299987549b8d742cea7cea68, type: 2}
+  - {fileID: 11400000, guid: 3708a5ee3b6fe2f45abdbe0d3016e8f4, type: 2}
+  - {fileID: 11400000, guid: 75ae9e917ea14294382f4bb0aaca8756, type: 2}
+  - {fileID: 11400000, guid: 32fa5bd54eedf3a4f9f61017915297d8, type: 2}
+  - {fileID: 11400000, guid: b2d1a4a97cc58864fa625001a6c41098, type: 2}
+  - {fileID: 11400000, guid: 553d8479adbb2b141b9ef7a49cbecd0a, type: 2}
+  - {fileID: 11400000, guid: bbe436d870fa8bb4b96f4f424c792c21, type: 2}
+  - {fileID: 11400000, guid: e116c30bcaafef4488c0b58f68ec821f, type: 2}
   selectedCats: []
-  cats: []
   nextCat: {fileID: 0}
   catometerBar: {fileID: 0}
   gameOverScreen: {fileID: 0}
   pauseMenu: {fileID: 0}
   roundText: {fileID: 0}
   scoreText: {fileID: 0}
+  timerImage: {fileID: 0}
   gameOver: 0
+  BaseTimeIncrement: 1
+  FinalTimeIncrement: 1

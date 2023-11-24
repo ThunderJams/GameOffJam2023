@@ -187,7 +187,10 @@ public class GameManager : MonoBehaviour
 
     public void EndRound()
     {
-        OnEndOfRound();
+        if (OnEndOfRound != null)
+        {
+            OnEndOfRound();
+        }
         AudioManager.instance?.PlaySound("dRUM_SHOT", 1, 1);
         NewRound();
     }

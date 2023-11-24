@@ -752,12 +752,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 430027321342823278, guid: d72d9ba55018fff48a2af6d401324864, type: 3}
       propertyPath: catTypes.Array.size
-      value: 15
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 430027321342823278, guid: d72d9ba55018fff48a2af6d401324864, type: 3}
       propertyPath: catTypes.Array.data[14]
       value: 
       objectReference: {fileID: 11400000, guid: 652e2be69b89a5040978f25068fd0551, type: 2}
+    - target: {fileID: 430027321342823278, guid: d72d9ba55018fff48a2af6d401324864, type: 3}
+      propertyPath: catTypes.Array.data[15]
+      value: 
+      objectReference: {fileID: 11400000, guid: bbe436d870fa8bb4b96f4f424c792c21, type: 2}
+    - target: {fileID: 430027321342823278, guid: d72d9ba55018fff48a2af6d401324864, type: 3}
+      propertyPath: catTypes.Array.data[16]
+      value: 
+      objectReference: {fileID: 11400000, guid: e116c30bcaafef4488c0b58f68ec821f, type: 2}
     - target: {fileID: 2929384281594217654, guid: d72d9ba55018fff48a2af6d401324864, type: 3}
       propertyPath: m_Name
       value: GameManager

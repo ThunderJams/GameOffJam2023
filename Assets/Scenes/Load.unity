@@ -322,7 +322,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: c724e164886ade44c8cbd401e23b65c8, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -2296,7 +2296,7 @@ GameObject:
   - component: {fileID: 674547908}
   m_Layer: 0
   m_Name: Catalogue
-  m_TagString: Settings
+  m_TagString: Catalogue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2313,6 +2313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c068538bf528c4a49898ea8b2fbdd7aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grid: {fileID: 2015013033}
   textScaleMultiplier: 1
 --- !u!4 &674547909
 Transform:

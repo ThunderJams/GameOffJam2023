@@ -277,6 +277,14 @@ PrefabInstance:
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5148886511125722300, guid: 80d18e4edb4d59340be0e8c9dcc4cacb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5148886511125722300, guid: 80d18e4edb4d59340be0e8c9dcc4cacb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5148886511125722300, guid: 80d18e4edb4d59340be0e8c9dcc4cacb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -316,6 +324,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7122350459460931663, guid: 80d18e4edb4d59340be0e8c9dcc4cacb, type: 3}
+      propertyPath: fallOffSound
+      value: 
+      objectReference: {fileID: 8300000, guid: bfa1260fb318eab439d9f46dae0f0172, type: 3}
+    - target: {fileID: 7122350459460931663, guid: 80d18e4edb4d59340be0e8c9dcc4cacb, type: 3}
+      propertyPath: pickedUpSound
+      value: 
+      objectReference: {fileID: 8300000, guid: bfa1260fb318eab439d9f46dae0f0172, type: 3}
     - target: {fileID: 9209598429659854506, guid: 80d18e4edb4d59340be0e8c9dcc4cacb, type: 3}
       propertyPath: m_Color.b
       value: 0.5707547
