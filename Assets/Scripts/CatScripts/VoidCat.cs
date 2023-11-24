@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class VoidCat : MonoBehaviour
 {
-    float gravityRadius = 3f;
-    float gravityPull = 0.05f;
-    int catsToEat = 10;
+    public float gravityRadius = 3f;
+    public float gravityPull = 0.05f;
+    public int catsToEat = 4;
 
     void Update()
     {
@@ -28,7 +28,7 @@ public class VoidCat : MonoBehaviour
         }
 
         // Do a circle raycast around the cat
-        RaycastHit2D[] eatHits = Physics2D.CircleCastAll(transform.position, 0.3f, Vector2.zero);
+        RaycastHit2D[] eatHits = Physics2D.CircleCastAll(transform.position, 0.5f, Vector2.zero);
         foreach (RaycastHit2D hit in eatHits)
         {
             // Check if raycast hit another cat

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Catsploder : MonoBehaviour
 {
     float explodeRadius = 2f;
-    float explodeStrength = 10.0f;
+    float explodeStrength = 100.0f;
 
     void Start()
     {
