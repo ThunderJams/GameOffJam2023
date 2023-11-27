@@ -42,7 +42,7 @@ public class Catsploder : MonoBehaviour
 
     void Explode()
     {
-        AudioManager.instance.PlaySound(explosionBang.name, 1.2f, 1.2f);
+        AudioManager.instance.PlaySound(explosionSound.name, 1.2f, 1.2f);
         explosionBang.transform.localScale = Vector3.one;
         explosionBang.transform.parent = null;
         // Do a circle raycast around the cat

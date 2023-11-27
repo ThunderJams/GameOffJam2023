@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using DG.Tweening;
 
 public class TutorialScript : MonoBehaviour
 {
@@ -20,18 +21,24 @@ public class TutorialScript : MonoBehaviour
     float initialHeight;
 
     CatBase firstCat;
-
+    [SerializeField] public TutorialScreen tutorialScreen;
     void Awake()
     {
         tutorialText[0] = "This is the cat tree! Cats love to climb on it, and the goal of the game is to keep it balanced! \n \n (click to continue)";
         tutorialText[1] = "A cat has been launched from the cat cannon! Click and drag to move it onto the scale. \n \n (click to continue)";
         tutorialText[2] = "Now that a cat has been placed on the scale, it leans towards the heavy side. \n \n (click to continue)";
         tutorialText[3] = "The timer in the top left shows the length of the Round. Each round gets more difficult! \n \n (click to continue)";
-        tutorialText[4] = "The bar on the left is the Scratch-O-Meter! It increases for each cat that falls off-screen. \n \n (click to continue)";
-        tutorialText[5] = "Once it reaches it's full capacity, it's Game Over! Good luck! \n \n (click to continue)";
+        tutorialText[4] = "This is the Scratch-O-Meter! It increases for each cat that falls off-screen. \n Once it reaches it's full capacity, it's Game Over! \n \n (click to continue)";
         initialHeight = scales[0].transform.position.y;
     }
 
+    private void Start()
+    {
+        if (PlayerPrefs.GetString("tutoDone","false") == "true")
+        {
+            gameObject.SetActive(false);
+        }
+    }
     // Update is called once per frame
     void Update()
     {
@@ -73,16 +80,13 @@ public class TutorialScript : MonoBehaviour
 
         }
 
-        if (tutorialTimer > 60 && tutorialActivated[4] == false)
+        if (tutorialTimer > 40 && tutorialActivated[4] == false)
         {
             // new line
             EnableTutorial(4);
+            PlayerPrefs.SetString("tutoDone", "true");
         }
-        if (tutorialActivated[4] == true && tutorialActivated[5] == false && Time.timeScale == 1)
-        {
-            // new line
-            EnableTutorial(5);
-        }
+
 
         // if click and tutorial is displayed
         if (Input.GetMouseButtonDown(0) && tutorialDisplayed)
@@ -102,7 +106,9 @@ public class TutorialScript : MonoBehaviour
 
         tutorialDisplayed = true;
         // freeze deltatime
-        Time.timeScale = 0;
+        DOTween.To(() => Time.timeScale, x => Time.timeScale = x, 0, 0.5f).SetUpdate(true);
+        //Time.timeScale = 0;
+        tutorialScreen.showSpriteMask(tutorialNumber);
         // set self active
         gameObject.GetComponent<Image>().enabled = true;
         // set text
@@ -115,11 +121,12 @@ public class TutorialScript : MonoBehaviour
     void DisableTutorial(){
         tutorialDisplayed = false;
         // unfreeze deltatime
-        Time.timeScale = 1;
+        DOTween.To(() => Time.timeScale, x => Time.timeScale = x, 1, 0.5f).SetUpdate(true);
         // set self inactive
         gameObject.GetComponent<Image>().enabled = false;
         gameObject.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
 
+        tutorialScreen.hideSpriteMask();
         professorSprite.enabled = false;
     }
 }

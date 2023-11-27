@@ -36,6 +36,7 @@ public class CatBase : MonoBehaviour
         gravity = rb.gravityScale;
         changeScale(GameManager.instance.gameParameters.catScaleMultiplier);
         rb.mass += GameManager.instance.gameParameters.catMassAddition;
+        indicator.SetActive(false);
     }
 
     void Update()
@@ -61,7 +62,8 @@ public class CatBase : MonoBehaviour
             indicator.transform.position = new Vector3(transform.position.x, 4.5f, 0);
             indicator.transform.rotation = Quaternion.Euler(0, 0, 0);
             float distanceFromScreen = (transform.position.y - 5.5f) * 0.1f;
-            indicator.transform.localScale = new Vector3(1 - distanceFromScreen, 1 - distanceFromScreen, 1);
+            float scaleRatio = Mathf.Clamp(1 - distanceFromScreen, 0, 3);
+            indicator.transform.localScale = new Vector3(scaleRatio, scaleRatio, 1);
         }
         else
         {

@@ -400,6 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e21ddcdd3a2221241a25a8da49b1bd2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clipFade: {fileID: 8300000, guid: 176269e1e7703f4489e89eb976d306f7, type: 3}
 --- !u!60 &5747017578476239358
 PolygonCollider2D:
   m_ObjectHideFlags: 0
