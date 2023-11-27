@@ -407,5 +407,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityRadius: 2.5
-  gravityPull: 0.05
+  gravityPull: 0.03
   catsToEat: 4
+  suckNoise: {fileID: 8300000, guid: 302b3fa3b384ca14784cabd12cff70dd, type: 3}

@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,6 +37,8 @@ public class PlayerManager : MonoBehaviour
             {
                 if (heldCat.GetComponent<AngryKitty>())
                 {
+                    heldCat.transform.DOPunchScale(new Vector3(0.7f, 0.7f, 0.7f), 0.5f, 1).SetEase(Ease.InOutElastic, 0.2f);
+                    AudioManager.instance.PlaySound(heldCat.GetComponent<CatBase>().pickedUpSound.name, 1.2f, 1.1f);
                     DropCat();
                 }
             }
@@ -84,6 +87,7 @@ public class PlayerManager : MonoBehaviour
 
     public void DropCat()
     {
+
         Rigidbody2D catBody = heldCat.GetComponent<Rigidbody2D>();
         catBody.mass = 0.1f;
         holding = false;

@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &84362063 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7204826908853748802, guid: a9449c4602bcd8c4688c50d70fb4328f, type: 3}
+  m_PrefabInstance: {fileID: 1875289025}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &95942448
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,6 +159,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &153155154 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 875624913639022219, guid: 1c5157e92cbf01145865df2e16186f9c, type: 3}
+  m_PrefabInstance: {fileID: 4841863333974530569}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc88432e7db4ab24fb1278bae4bd6d4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &764501687 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6889408209754432316, guid: 1c5157e92cbf01145865df2e16186f9c, type: 3}
@@ -215,6 +231,49 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &843921387 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2395810629708951307, guid: 7c5f80af533b03749a53b907110405a0, type: 3}
+  m_PrefabInstance: {fileID: 819677576476185780}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cd03c05d8b213449baa9666585dd490, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1036171664 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8174241881010460895, guid: 1c5157e92cbf01145865df2e16186f9c, type: 3}
+  m_PrefabInstance: {fileID: 4841863333974530569}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1165073610 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2930031164403630032, guid: 1c5157e92cbf01145865df2e16186f9c, type: 3}
+  m_PrefabInstance: {fileID: 4841863333974530569}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1219782896 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8785886143033711465, guid: b08d415615afb57459eca9667a42dba3, type: 3}
+  m_PrefabInstance: {fileID: 7104724098896971645}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1246978756 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2503865044167928713, guid: 1c5157e92cbf01145865df2e16186f9c, type: 3}
+  m_PrefabInstance: {fileID: 4841863333974530569}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1428523928
 GameObject:
   m_ObjectHideFlags: 0
@@ -662,6 +721,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 430027321342823278, guid: d72d9ba55018fff48a2af6d401324864, type: 3}
+      propertyPath: catCannon
+      value: 
+      objectReference: {fileID: 1219782896}
+    - target: {fileID: 430027321342823278, guid: d72d9ba55018fff48a2af6d401324864, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 843921387}
+    - target: {fileID: 430027321342823278, guid: d72d9ba55018fff48a2af6d401324864, type: 3}
+      propertyPath: roundText
+      value: 
+      objectReference: {fileID: 1036171664}
+    - target: {fileID: 430027321342823278, guid: d72d9ba55018fff48a2af6d401324864, type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 153155154}
+    - target: {fileID: 430027321342823278, guid: d72d9ba55018fff48a2af6d401324864, type: 3}
+      propertyPath: timerImage
+      value: 
+      objectReference: {fileID: 1165073610}
+    - target: {fileID: 430027321342823278, guid: d72d9ba55018fff48a2af6d401324864, type: 3}
+      propertyPath: catometerBar
+      value: 
+      objectReference: {fileID: 1246978756}
+    - target: {fileID: 430027321342823278, guid: d72d9ba55018fff48a2af6d401324864, type: 3}
+      propertyPath: gameOverScreen
+      value: 
+      objectReference: {fileID: 84362063}
+    - target: {fileID: 430027321342823278, guid: d72d9ba55018fff48a2af6d401324864, type: 3}
+      propertyPath: gameParameters
+      value: 
+      objectReference: {fileID: 11400000, guid: 8a1a9976d3880664781e50e2c652d12e, type: 2}
     - target: {fileID: 2929384281594217654, guid: d72d9ba55018fff48a2af6d401324864, type: 3}
       propertyPath: m_Name
       value: GameManager

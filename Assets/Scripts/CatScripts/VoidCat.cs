@@ -8,6 +8,7 @@ public class VoidCat : MonoBehaviour
     public float gravityPull = 0.05f;
     public int catsToEat = 4;
 
+    public AudioClip suckNoise;
     void Update()
     {
         if (!GetComponent<CatBase>().activated)
@@ -41,6 +42,7 @@ public class VoidCat : MonoBehaviour
                 {
                     Destroy(gameObject);
                 }
+                AudioManager.instance.PlaySound(suckNoise.name,1,Random.Range(0.9f,1.1f));
             }
         }
     }

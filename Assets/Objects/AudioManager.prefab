@@ -194,6 +194,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 19d755758c5ffb84b9e4246a9c47646c, type: 3}
   - {fileID: 8300000, guid: cc367f17d6443ba41886fe6934b611dc, type: 3}
   - {fileID: 8300000, guid: 4e1b5b889cfd88b4e9e86bb54034d709, type: 3}
+  - {fileID: 8300000, guid: 302b3fa3b384ca14784cabd12cff70dd, type: 3}
+  - {fileID: 8300000, guid: 7ac00427e749b714e829af46c096f3ee, type: 3}
+  - {fileID: 8300000, guid: 694867211b2357f4c8f4413bee904fe8, type: 3}
+  - {fileID: 8300000, guid: 176269e1e7703f4489e89eb976d306f7, type: 3}
+  - {fileID: 8300000, guid: b7cef54460d2ed143be18bc7f0e7499d, type: 3}
   musicList:
   - {fileID: 8300000, guid: 8163cf4af45b0ed49ac332cf30f2553d, type: 3}
   musicAudioSource: {fileID: 7407687599200984560}

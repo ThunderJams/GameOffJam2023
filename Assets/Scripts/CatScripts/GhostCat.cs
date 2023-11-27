@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GhostCat : MonoBehaviour
 {
+    public AudioClip clipFade;
     void Start()
     {
         GameManager.OnEndOfRound += EndOfRound;
@@ -12,6 +13,7 @@ public class GhostCat : MonoBehaviour
 
     void EndOfRound()
     {
+        AudioManager.instance.PlaySound(clipFade.name, 1, Random.Range(0.9f, 1.1f));
         GameManager.instance.RemoveCat(gameObject);
         Destroy(gameObject);
     }

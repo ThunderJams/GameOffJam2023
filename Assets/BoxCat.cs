@@ -9,6 +9,7 @@ public class BoxCat : MonoBehaviour
     public GameObject spriteHidden;
     public GameObject spriteTransformed;
     public AudioClip soundCatTransformed;
+    public AudioClip soundCatTransformation;
     public CatBase catbase;
     void Start()
     {
@@ -31,6 +32,7 @@ public class BoxCat : MonoBehaviour
 
     public void TransformCat()
     {
+        AudioManager.instance.PlaySound(soundCatTransformation.name);
         spriteHidden.SetActive(false);
         spriteTransformed.SetActive(true);
         catbase.GetComponent<PolygonCollider2D>().points = spriteTransformed.GetComponent<PolygonCollider2D>().points;

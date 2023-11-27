@@ -413,7 +413,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteHidden: {fileID: 2905769406256967816}
   spriteTransformed: {fileID: 809934004243613218}
-  soundCatTransformed: {fileID: 8300000, guid: cc367f17d6443ba41886fe6934b611dc, type: 3}
+  soundCatTransformed: {fileID: 8300000, guid: 304ac471e6429ff4b8ed5064d646064e, type: 3}
+  soundCatTransformation: {fileID: 8300000, guid: 7ac00427e749b714e829af46c096f3ee, type: 3}
   catbase: {fileID: 5619631652411335646}
 --- !u!60 &4517745432683770486
 PolygonCollider2D:
