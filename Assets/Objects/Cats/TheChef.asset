@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a71fcc4c192a7a4886080ff6af720d7, type: 3}
+  m_Name: TheChef
+  m_EditorClassIdentifier: 
+  catName: The Chef
+  description: 
+  prefab: {fileID: 2308074261881401605, guid: 67d48a39c0023884faa3730976cd1f38, type: 3}
+  seen: 0

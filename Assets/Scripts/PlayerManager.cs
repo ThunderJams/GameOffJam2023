@@ -7,6 +7,8 @@ public class PlayerManager : MonoBehaviour
     private GameObject heldCat;
     private bool holding = false;
 
+    private float holdDuration = 0.0f;
+
     void Update()
     {
         if (GameManager.instance.gameOver)
@@ -27,17 +29,22 @@ public class PlayerManager : MonoBehaviour
             if (catBody.velocity.magnitude > 30)
                 catBody.velocity = catBody.velocity.normalized * 30;
             catBody.mass = 0.005f;
+
+            holdDuration += Time.deltaTime;
+
+            if (holdDuration > 2)
+            {
+                if (heldCat.GetComponent<AngryKitty>())
+                {
+                    DropCat();
+                }
+            }
         }
 
         // Drop cat
         if (Input.GetMouseButtonUp(0) && holding == true)
         {
-            Rigidbody2D catBody = heldCat.GetComponent<Rigidbody2D>();
-            catBody.mass = 0.1f;
-            holding = false;
-            Vector2 mouseMovement = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-            heldCat.GetComponent<Rigidbody2D>().velocity = mouseMovement * 10;
-            heldCat = null;
+            DropCat();
         }
 
         // Try pick up cat
@@ -51,7 +58,9 @@ public class PlayerManager : MonoBehaviour
                 {
                     heldCat = hit.collider.gameObject;
                     holding = true;
-                    heldCat.GetComponent<CatBase>().PickUp(); 
+                    heldCat.GetComponent<CatBase>().PickUp();
+                
+                    holdDuration = 0.0f;
                 }
                 
             }
@@ -71,5 +80,17 @@ public class PlayerManager : MonoBehaviour
                 heldCat.transform.Rotate(0, 0, 300 * Time.deltaTime);
             }
         }
+    }
+
+    public void DropCat()
+    {
+        Rigidbody2D catBody = heldCat.GetComponent<Rigidbody2D>();
+        catBody.mass = 0.1f;
+        holding = false;
+        Vector2 mouseMovement = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+        heldCat.GetComponent<Rigidbody2D>().velocity = mouseMovement * 10;
+        heldCat = null;
+
+        holdDuration = 0.0f;
     }
 }

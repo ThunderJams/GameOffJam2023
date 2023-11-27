@@ -133,6 +133,8 @@ public class GameManager : MonoBehaviour
             catCooldown = gameParameters.baseCatCooldown / FinalTimeIncrement;
             for (int i = 0; i < activeBuccaneers; i++)
                 catCooldown *= 0.8f;
+            if (catCooldown < 0.5f)
+                catCooldown = 0.5f;
             FireCat();
         }
         if (roundTimer < 5 && ! ticking)
