@@ -15,6 +15,7 @@ public class CatBase : MonoBehaviour
 
     [HideInInspector] public float gravity;
 
+     
     [HideInInspector] public bool onDish;
 
     Rigidbody2D rb;
@@ -78,6 +79,8 @@ public class CatBase : MonoBehaviour
         sr.sortingOrder = 10;
         rb.excludeLayers = 8;
         activated = true;
+
+
     }
 
     void FallOffScreen()
