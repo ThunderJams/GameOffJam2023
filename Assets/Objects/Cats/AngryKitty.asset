@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: AngryKitty
   m_EditorClassIdentifier: 
   catName: Angry Kitty
-  description: 
+  description: Hates being picked up for too long ! Will bite your finger after a
+    short while.
   prefab: {fileID: 2308074261881401605, guid: cec437901e4cd164ca5c75bf7d23cfca, type: 3}
-  seen: 0
+  seen: 1

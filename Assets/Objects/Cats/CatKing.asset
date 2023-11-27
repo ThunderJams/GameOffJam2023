@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: CatKing
   m_EditorClassIdentifier: 
   catName: Cat king
-  description: 
+  description: Cats are attracted towards his majesty!
   prefab: {fileID: 2308074261881401605, guid: 06b09989b5c9642409f344560ca5629b, type: 3}
   seen: 0

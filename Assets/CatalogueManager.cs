@@ -25,13 +25,13 @@ public class CatalogueManager : MonoBehaviour
     public void EnableCatalogue()
     {
         transform.GetChild(0).gameObject.SetActive(true);
-        grid.DeleteGrid();
         grid.CreateGrid();
 
     }
 
     public void DisableCatalogue()
     {
+        grid.DeleteGrid();
         transform.GetChild(0).gameObject.SetActive(false);
     }
 }

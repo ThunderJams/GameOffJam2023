@@ -30,6 +30,7 @@ public class CatBase : MonoBehaviour
     Tween catPickedUpTween;
 
     public bool CanRotate = true;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();

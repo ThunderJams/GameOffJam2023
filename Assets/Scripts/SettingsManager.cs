@@ -45,4 +45,16 @@ public class SettingsManager : MonoBehaviour
     public void DisableSettings(){
         transform.GetChild(0).gameObject.SetActive(false);
     }
+
+
+    public string GetCatSeen(string catName)
+    {
+        return PlayerPrefs.GetString(catName, "false");
+    }
+
+    public void SetCatSeen(string catName, string seen)
+    {
+        PlayerPrefs.SetString(catName, seen);
+
+    }
 }

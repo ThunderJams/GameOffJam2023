@@ -63,6 +63,8 @@ public class CatalogueGrid : MonoBehaviour
         {
             Destroy(catCon);
         }
+        catContainers.Clear();
+        currentPageIndex = 0;
     }
     public void RefreshGrid()
     {
@@ -115,7 +117,7 @@ public class CatalogueGrid : MonoBehaviour
         catName.text = cat.catName;
         print(cat.name);
         catDescription.text = cat.description;
-        if (cat.seen)
+        if (SettingsManager.instance.GetCatSeen(cat.catName) == "true")
         {
             catImage.color = Color.white;
             if(soundCooldown<= 0)

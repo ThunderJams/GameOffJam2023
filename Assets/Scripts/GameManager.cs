@@ -100,10 +100,7 @@ public class GameManager : MonoBehaviour
         selectedCats = catTypes.OrderBy(x => Random.value).Take(gameParameters.startingCatAmount).ToArray();
         foreach (CatType cats in selectedCats)
         {
-            if (!cats.seen)
-            {
-                cats.seen = true;
-            }
+            SettingsManager.instance.SetCatSeen(cats.catName, "true");
         }
     }
 
@@ -210,10 +207,7 @@ public class GameManager : MonoBehaviour
         }
         foreach (CatType cats in selectedCats)
         {
-            if (!cats.seen)
-            {
-                cats.seen = true;
-            }
+            SettingsManager.instance.SetCatSeen(cats.catName, "true");
         }
         //score += catsOnPlatform * catMultiplierSum;
 

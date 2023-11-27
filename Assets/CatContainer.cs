@@ -24,7 +24,7 @@ public class CatContainer : MonoBehaviour
     }
     public void RefreshCat()
     {
-        if (type.seen)
+        if (SettingsManager.instance.GetCatSeen(type.catName) == "true")
         {
             catSprite.gameObject.SetActive(true);
             lockedText.gameObject.SetActive(false);
@@ -42,4 +42,6 @@ public class CatContainer : MonoBehaviour
     {
         OnShowCat(this);
     }
+
+
 }

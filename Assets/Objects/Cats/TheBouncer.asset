@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: TheBouncer
   m_EditorClassIdentifier: 
   catName: The Bouncer
-  description: 
+  description: All cats become bouncy when this cool cat comes in
   prefab: {fileID: 0}
   seen: 0
