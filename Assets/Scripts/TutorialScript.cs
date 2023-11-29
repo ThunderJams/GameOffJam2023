@@ -27,7 +27,7 @@ public class TutorialScript : MonoBehaviour
     void Awake()
     {
         tutorialText[0] = "This is the cat tree! Cats love to climb on it, and the goal of the game is to keep it balanced! \n \n (click to continue)";
-        tutorialText[1] = "A cat has been launched from the cat cannon! Click and drag to move it onto the scale. \n \n (click to continue)";
+        tutorialText[1] = "A cat has been launched from the cat cannon! Click and drag to move it onto the scale.\nYou can rotate it with mouse wheel or right click. \n \n (click to continue)";
         tutorialText[2] = "Now that a cat has been placed on the scale, it leans towards the heavy side. \n \n (click to continue)";
         tutorialText[3] = "The timer in the top left shows the length of the Round. Each round gets more difficult! \n \n (click to continue)";
         tutorialText[4] = "This is the Scratch-O-Meter! It increases for each cat that falls off-screen. \n Once it reaches it's full capacity, it's Game Over! \n \n (click to continue)";

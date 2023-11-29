@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a71fcc4c192a7a4886080ff6af720d7, type: 3}
   m_Name: TheWhiteDemon
   m_EditorClassIdentifier: 
-  catName: The White Demon
-  description: Hates the red devils! Will cause mayhem if next to one another
+  catName: The White Angel
+  description: Hates the red demons! Will cause mayhem if next to one another
   prefab: {fileID: 1682211924299110083, guid: 7876d61011d625945a3207f3a65efec0, type: 3}
   rarity: 1

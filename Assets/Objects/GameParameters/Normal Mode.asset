@@ -25,7 +25,8 @@ MonoBehaviour:
   maxRoundTimer: 40
   startingCatAmount: 2
   maximumCatAmount: 13
-  catOMeterDecreaseValue: 0.8
+  inBetweenRoundTime: 4
+  catOMeterDecreaseValue: 0.601
   incrementRate: 1
   desiredRoundMaxDifficulty: 5
   finalTimeMultiplier: 0.5
