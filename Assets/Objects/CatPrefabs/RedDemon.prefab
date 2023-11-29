@@ -350,7 +350,7 @@ PrefabInstance:
     - target: {fileID: 7122350459460931663, guid: 80d18e4edb4d59340be0e8c9dcc4cacb, type: 3}
       propertyPath: pickedUpSound
       value: 
-      objectReference: {fileID: 8300000, guid: 33ead24dee00dc144a25b62087767939, type: 3}
+      objectReference: {fileID: 8300000, guid: 509e4d56181c3dc478e36dc11684dfa8, type: 3}
     - target: {fileID: 9209598429659854506, guid: 80d18e4edb4d59340be0e8c9dcc4cacb, type: 3}
       propertyPath: m_Sprite
       value: 

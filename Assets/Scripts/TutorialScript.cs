@@ -22,6 +22,7 @@ public class TutorialScript : MonoBehaviour
 
     CatBase firstCat;
     [SerializeField] public TutorialScreen tutorialScreen;
+    public List<AudioClip> clipsPurfessor;
     void Awake()
     {
         tutorialText[0] = "This is the cat tree! Cats love to climb on it, and the goal of the game is to keep it balanced! \n \n (click to continue)";
@@ -38,6 +39,8 @@ public class TutorialScript : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+        Sequence s = DOTween.Sequence();
+        s.Append(professorSprite.transform.DOPunchScale(new Vector3(0.2f, 0.2f), 2, 2).SetEase(Ease.OutBounce)).PrependInterval(Random.Range(0.5f, 3f)).SetLoops(-1).SetUpdate(true);
     }
     // Update is called once per frame
     void Update()
@@ -103,7 +106,7 @@ public class TutorialScript : MonoBehaviour
 
     void EnableTutorial(int tutorialNumber){
         tutorialActivated[tutorialNumber] = true;
-
+        AudioManager.instance.PlaySound(clipsPurfessor[Random.Range(0, clipsPurfessor.Count)].name);
         tutorialDisplayed = true;
         // freeze deltatime
         DOTween.To(() => Time.timeScale, x => Time.timeScale = x, 0, 0.5f).SetUpdate(true);

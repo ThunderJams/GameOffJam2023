@@ -1711,6 +1711,13 @@ MonoBehaviour:
   scales:
   - {fileID: 0}
   - {fileID: 0}
+  tutorialScreen: {fileID: 0}
+  clipsPurfessor:
+  - {fileID: 8300000, guid: 5df010f68393ef54ea110364785b1e2a, type: 3}
+  - {fileID: 8300000, guid: bdb8bd93be058ad40ab476d2c9edf6b1, type: 3}
+  - {fileID: 8300000, guid: 9e903ce8e7e213341b838dee5984ca7b, type: 3}
+  - {fileID: 8300000, guid: 5a64970f054fdda4da4f6f9aa10da90a, type: 3}
+  - {fileID: 8300000, guid: 6d23f356509bbf44b92037a8fcc845a1, type: 3}
 --- !u!1 &5162320465673054631
 GameObject:
   m_ObjectHideFlags: 0
@@ -1820,8 +1827,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 350, y: -100}
-  m_SizeDelta: {x: 141.39532, y: 112.558136}
+  m_AnchoredPosition: {x: 429, y: 119}
+  m_SizeDelta: {x: 154, y: 207.06973}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5316153960074668789
 CanvasRenderer:
@@ -1851,7 +1858,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c724e164886ade44c8cbd401e23b65c8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 78190988d06fd1a4495bece3d4dc6f83, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -744,7 +744,7 @@ MonoBehaviour:
   spriteNormal: {fileID: 3497619107065968318}
   exploded: 0
   catbase: {fileID: 6135493532894963176}
-  explosionSound: {fileID: 8300000, guid: bccd7e26d23a7c345993941eb5abe3e4, type: 3}
+  explosionSound: {fileID: 8300000, guid: 9b96035b67188a34f97f3a6033f92a49, type: 3}
   explosionBang: {fileID: 8174144574768563337}
 --- !u!60 &938590326036130688
 PolygonCollider2D:
