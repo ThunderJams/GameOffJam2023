@@ -15,4 +15,4 @@ MonoBehaviour:
   catName: Box Cat
   description: He just can't fit in it, no matter how much he tries
   prefab: {fileID: 2308074261881401605, guid: 12ab754bd1c117e4b85fd3535c3502d7, type: 3}
-  seen: 0
+  rarity: 2

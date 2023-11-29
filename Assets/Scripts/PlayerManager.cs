@@ -10,6 +10,11 @@ public class PlayerManager : MonoBehaviour
 
     private float holdDuration = 0.0f;
 
+
+    public int roundsSurvived = 0;
+    public int cannonShot = 0;
+    public int catLost = 0;
+
     void Update()
     {
         if (GameManager.instance.gameOver)
@@ -84,7 +89,6 @@ public class PlayerManager : MonoBehaviour
             }
         }
     }
-
     public void DropCat()
     {
 

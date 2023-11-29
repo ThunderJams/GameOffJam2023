@@ -17,6 +17,10 @@ public class AudioManager : MonoBehaviour
     private float musicVolume = 1;
 
     public AudioSource soundEffectsAudioSource;
+
+    public int pooledSourcesCount = 10;
+    int currentSourceIndex = 0;
+    public List<AudioSource> pooledSoundEffectAudioSources;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +40,11 @@ public class AudioManager : MonoBehaviour
         soundEffectsVolume= PlayerPrefs.GetFloat("SoundVolume", 0.7f);
         UpdateSoundValues();
         PlayMusic("GameMusic");
+        for (int i = 0; i < pooledSourcesCount; i++)
+        {
+            AudioSource audioSource = soundEffectsAudioSource.gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
+            pooledSoundEffectAudioSources.Add(audioSource);
+        }
 
     }
 
@@ -70,20 +79,25 @@ public class AudioManager : MonoBehaviour
 
         musicAudioSource.volume = masterVolume * musicVolume;
         soundEffectsAudioSource.volume = masterVolume * soundEffectsVolume;
+        foreach (AudioSource audioSource in pooledSoundEffectAudioSources)
+        {
+            audioSource.volume = masterVolume * soundEffectsVolume;
+        }
     }
     public void PlaySound(string soundName, float volumeScale = 1, float pitch = 1)
     {
-        soundEffectsAudioSource.pitch = pitch;
         
         AudioClip sfx = sfxList.Where((AudioClip x) => x.name.ToUpper() == soundName.ToUpper()).FirstOrDefault();
         if (sfx != null)
         {
-            soundEffectsAudioSource.PlayOneShot(sfx, volumeScale);
+            pooledSoundEffectAudioSources[currentSourceIndex].pitch = pitch;
+            pooledSoundEffectAudioSources[currentSourceIndex].PlayOneShot(sfx, volumeScale);
         }
         else
         {
             Debug.LogError("Invalid audio clip name for " + soundName);
         }
+        currentSourceIndex = (currentSourceIndex + 1)%pooledSourcesCount;
     }
     public void PlayMusic(string musicName)
     {

@@ -15,4 +15,4 @@ MonoBehaviour:
   catName: Sticky Cat
   description: He is too sticky, whatch where you stick him!
   prefab: {fileID: 1791078804657625738, guid: 180ab2118d593a948ac837036fa75dff, type: 3}
-  seen: 1
+  rarity: 2

@@ -15,4 +15,4 @@ MonoBehaviour:
   catName: The Cat Wall
   description: He's the final rampart. also has a little bow tie, how cute!
   prefab: {fileID: 2910067844985919179, guid: b147418713716014aabf54498f32f67c, type: 3}
-  seen: 1
+  rarity: 3

@@ -15,4 +15,4 @@ MonoBehaviour:
   catName: Merging Cat
   description: He is so hungry he could eat anything !
   prefab: {fileID: 2308074261881401605, guid: d58aa953163f8ff4386f3e59e299c657, type: 3}
-  seen: 1
+  rarity: 2

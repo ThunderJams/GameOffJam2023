@@ -25,6 +25,8 @@ public class Catsploder : MonoBehaviour
 
     void EndOfRound()
     {
+        if (!GetComponent<CatBase>().activated)
+            return;
         if (!exploded)
         {
             exploded = true;
@@ -33,8 +35,6 @@ public class Catsploder : MonoBehaviour
         {
             return;
         }
-        if (!GetComponent<CatBase>().activated)
-            return;
 
         spriteNormal.transform.DOScale(1.2f, 0.7f).SetEase(Ease.InCubic).onComplete += () => { Explode(); };
        
@@ -42,7 +42,7 @@ public class Catsploder : MonoBehaviour
 
     void Explode()
     {
-        AudioManager.instance.PlaySound(explosionSound.name, 1.2f, 1.2f);
+        AudioManager.instance.PlaySound(explosionSound.name,1f, 0.8f);
         explosionBang.transform.localScale = Vector3.one;
         explosionBang.transform.parent = null;
         // Do a circle raycast around the cat

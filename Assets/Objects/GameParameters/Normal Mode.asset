@@ -18,11 +18,13 @@ MonoBehaviour:
   minimumCatSpawnTimer: 0.5
   globalCatGravityMultiplier: 1
   towerBeamMass: 20
-  towerBeamDrag: 20
+  towerBeamDrag: 10
   dishLinearDrag: 0
-  dishMass: 0.5
-  roundTimer: 30
-  startingCatAmount: 4
+  dishMass: 1
+  roundTimer: 20
+  maxRoundTimer: 40
+  startingCatAmount: 2
+  maximumCatAmount: 13
   catOMeterDecreaseValue: 0.8
   incrementRate: 1
   desiredRoundMaxDifficulty: 5
@@ -30,5 +32,5 @@ MonoBehaviour:
   catOMeterVariance: 0.25
   baseCatDroppedScoreMultiplier: 1
   catScaleMultiplier: 0.85
-  catMassAddition: 0.1
+  catMassAddition: 0.3
   baseCatCooldown: 5

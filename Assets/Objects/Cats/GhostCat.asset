@@ -15,4 +15,4 @@ MonoBehaviour:
   catName: Ghost Cat
   description: He is too spooky! At the end of a round, disappears in the shadows
   prefab: {fileID: 246095381201252289, guid: 27f4658f73b0f934a94d2842b2306505, type: 3}
-  seen: 1
+  rarity: 1

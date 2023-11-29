@@ -115,7 +115,6 @@ public class CatalogueGrid : MonoBehaviour
         if (cat.prefab.GetComponent<CatBase>().sprite != null)
             catImage.sprite = cat.prefab.GetComponent<CatBase>().sprite.sprite;
         catName.text = cat.catName;
-        print(cat.name);
         catDescription.text = cat.description;
         if (SettingsManager.instance.GetCatSeen(cat.catName) == "true")
         {

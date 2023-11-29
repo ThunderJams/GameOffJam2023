@@ -15,4 +15,4 @@ MonoBehaviour:
   catName: Small Void
   description: Will absorb other cats before fading away
   prefab: {fileID: 8681427283007590747, guid: f61a652496c28aa49b58d1918163e6a1, type: 3}
-  seen: 1
+  rarity: 3

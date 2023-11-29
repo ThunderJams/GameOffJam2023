@@ -15,4 +15,4 @@ MonoBehaviour:
   catName: Troublemaker
   description: Will shake around and cause trouble when left unattended
   prefab: {fileID: 2308074261881401605, guid: 920a0fb0854b30145b0ceae7f12bb5a9, type: 3}
-  seen: 1
+  rarity: 1

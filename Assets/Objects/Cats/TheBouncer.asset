@@ -15,4 +15,4 @@ MonoBehaviour:
   catName: The Bouncer
   description: All cats become bouncy when this cool cat comes in
   prefab: {fileID: 0}
-  seen: 0
+  rarity: 3

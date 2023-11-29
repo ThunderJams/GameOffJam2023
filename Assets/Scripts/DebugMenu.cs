@@ -29,11 +29,12 @@ public class DebugMenu : MonoBehaviour
 
     bool visible;
 
-    void Start()
+    IEnumerator Start()
     {
+        yield return new WaitForSeconds(0.5f);
         visible = debugMenu.activeSelf;
 
-        CatType[] catTypes = GameManager.instance.catTypes;
+        List<CatType> catTypes = GameManager.instance.catFactory.catTypes;
         foreach (CatType catType in catTypes)
         {
             typeDropdown.options.Add(new TMP_Dropdown.OptionData(catType.catName));

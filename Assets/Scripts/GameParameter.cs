@@ -26,7 +26,10 @@ public class GameParameters : ScriptableObject
 
     //Round settings
     public int roundTimer = 30;
-    public int startingCatAmount = 4;
+    public int maxRoundTimer = 40;
+    public int startingCatAmount = 2;
+    public int maximumCatAmount = 9;
+    public int inBetweenRoundTime = 4;
     [Range(0.1f, 1)] public float catOMeterDecreaseValue = 0.8f;
 
     //Time increment scaling

@@ -28,7 +28,7 @@ public class CatBase : MonoBehaviour
     public AudioClip fallOffSound;
     public SpriteRenderer sprite;
     Tween catPickedUpTween;
-
+    public float catVolume = 1f;
     public bool CanRotate = true;
 
     void Awake()
@@ -104,7 +104,7 @@ public class CatBase : MonoBehaviour
 
     public void PickUp()
     {
-        AudioManager.instance?.PlaySound(pickedUpSound.name.ToString(),1,Random.Range(0.90f,1.1f));
+        AudioManager.instance?.PlaySound(pickedUpSound.name.ToString(), catVolume, 1);
         if (catPickedUpTween == null)
         {
             catPickedUpTween = sprite.transform.DOPunchScale(new Vector3(0.5f, 0.5f, 0.5f), 0.5f, 1).SetEase(Ease.InOutElastic, 0.2f);

@@ -23,6 +23,7 @@ public class TutorialScript : MonoBehaviour
     CatBase firstCat;
     [SerializeField] public TutorialScreen tutorialScreen;
     public List<AudioClip> clipsPurfessor;
+    private bool canClickOnScreen = false;
     void Awake()
     {
         tutorialText[0] = "This is the cat tree! Cats love to climb on it, and the goal of the game is to keep it balanced! \n \n (click to continue)";
@@ -30,6 +31,7 @@ public class TutorialScript : MonoBehaviour
         tutorialText[2] = "Now that a cat has been placed on the scale, it leans towards the heavy side. \n \n (click to continue)";
         tutorialText[3] = "The timer in the top left shows the length of the Round. Each round gets more difficult! \n \n (click to continue)";
         tutorialText[4] = "This is the Scratch-O-Meter! It increases for each cat that falls off-screen. \n Once it reaches it's full capacity, it's Game Over! \n \n (click to continue)";
+        tutorialText[5] = "At the start of a round, some cats will poof away ! Good luck ! \n \n (click to continue)";
         initialHeight = scales[0].transform.position.y;
     }
 
@@ -52,15 +54,15 @@ public class TutorialScript : MonoBehaviour
         if (tutorialTimer > 1 && tutorialActivated[0] == false)
         {
             // new line
-            EnableTutorial(0);
+            StartCoroutine(EnableTutorial(0));
         }
 
 
         if (firstCat){
             if (firstCat.activated && tutorialActivated[1] == false)
             {
-            // new line
-            EnableTutorial(1);
+                // new line
+                StartCoroutine(EnableTutorial(1));
             }
         }
         
@@ -70,29 +72,34 @@ public class TutorialScript : MonoBehaviour
             {
                 if (scale.transform.position.y < initialHeight - 0.2f)
                 {
-                    EnableTutorial(2);
+                    StartCoroutine(EnableTutorial(2));
                 }
             }
         }
         else{
-            if (tutorialTimer > 20 && tutorialActivated[3] == false)
+            if (tutorialTimer > 25 && tutorialActivated[3] == false)
             {
                 // new line
-                EnableTutorial(3);
+                StartCoroutine(EnableTutorial(3));
             }
 
         }
 
-        if (tutorialTimer > 40 && tutorialActivated[4] == false)
+        if (tutorialTimer > 35 && tutorialActivated[4] == false)
         {
             // new line
-            EnableTutorial(4);
+            StartCoroutine(EnableTutorial(4));
+        }
+
+        if (GameManager.instance.round > 2 && GameManager.instance.roundTimer < GameManager.instance.gameParameters.roundTimer - 5 && tutorialActivated[5] == false)
+        {
+            // new line
+            StartCoroutine(EnableTutorial(5));
             PlayerPrefs.SetString("tutoDone", "true");
         }
 
-
         // if click and tutorial is displayed
-        if (Input.GetMouseButtonDown(0) && tutorialDisplayed)
+        if (canClickOnScreen && Input.GetMouseButtonDown(0) && tutorialDisplayed)
         {
             // disable tutorial
             DisableTutorial();
@@ -104,7 +111,9 @@ public class TutorialScript : MonoBehaviour
         }
     }
 
-    void EnableTutorial(int tutorialNumber){
+    IEnumerator EnableTutorial(int tutorialNumber)
+    {
+        canClickOnScreen = false;
         tutorialActivated[tutorialNumber] = true;
         AudioManager.instance.PlaySound(clipsPurfessor[Random.Range(0, clipsPurfessor.Count)].name);
         tutorialDisplayed = true;
@@ -119,16 +128,17 @@ public class TutorialScript : MonoBehaviour
         gameObject.GetComponentInChildren<TextMeshProUGUI>().text = tutorialText[tutorialNumber];
 
         professorSprite.enabled = true;
+        yield return new WaitForSecondsRealtime(1f);
+        canClickOnScreen = true;
     }
-
-    void DisableTutorial(){
+    void DisableTutorial()
+    {
         tutorialDisplayed = false;
         // unfreeze deltatime
         DOTween.To(() => Time.timeScale, x => Time.timeScale = x, 1, 0.5f).SetUpdate(true);
         // set self inactive
         gameObject.GetComponent<Image>().enabled = false;
         gameObject.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
-
         tutorialScreen.hideSpriteMask();
         professorSprite.enabled = false;
     }

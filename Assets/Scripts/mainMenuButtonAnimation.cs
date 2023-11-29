@@ -20,7 +20,7 @@ public class mainMenuButtonAnimation : MonoBehaviour
     //Shake the transform
     public void onPointerEnter(BaseEventData data)
     {
-        transform.DOShakeRotation(0.5f, new Vector3(0, 0, shakeStrength), 10, 40, true, ShakeRandomnessMode.Harmonic).SetEase(Ease.InBack);
+        transform.DOShakeRotation(0.5f, new Vector3(0, 0, shakeStrength), 10, 40, true, ShakeRandomnessMode.Harmonic).SetEase(Ease.InBack).SetUpdate(true);
         AudioManager.instance.PlaySound("Click", 0.5f, 1.2f);
     }
 

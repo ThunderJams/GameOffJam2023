@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     /// Data about the different game parameters
     /// </summary>
     public GameParameters gameParameters;
+    public CatFactory catFactory;
     void Awake()
     {
         if (instance == null)
@@ -34,10 +35,7 @@ public class GameManager : MonoBehaviour
     }  
 
     [SerializeField] GameObject catCannon;
-    public CatType[] catTypes;
     public List<CatType> discoveredCats;
-
-    public CatType[] selectedCats;
 
 
     List<GameObject> cats = new List<GameObject>();
@@ -61,14 +59,15 @@ public class GameManager : MonoBehaviour
 
     public bool gameOver = false;
 
-    int round = 1;
+    public int round = 1;
 
     bool paused = false;
 
-    float roundTimer;
+    public float roundTimer;
 
     int activeBuccaneers = 0;
 
+    public PlayerManager player;
     public void ChangeBuccaneer(int change)
     {
         activeBuccaneers += change;
@@ -90,6 +89,7 @@ public class GameManager : MonoBehaviour
     public float FinalTimeIncrement = 1;
     void Start()
     {
+        catFactory = GetComponent<CatFactory>();
         StartGame();
         
         roundTimer = gameParameters.roundTimer;
@@ -101,13 +101,14 @@ public class GameManager : MonoBehaviour
         round = 1;
 
         catometerSlider = catometerBar.GetComponent<CatOMeterSlider>();
-        selectedCats = catTypes.OrderBy(x => Random.value).Take(gameParameters.startingCatAmount).ToArray();
-        foreach (CatType cats in selectedCats)
+        List<CatType> newCats =  catFactory.SetNewRound(1);
+
+        foreach (CatType cats in newCats)
         {
             SettingsManager.instance.SetCatSeen(cats.catName, "true");
         }
     }
-
+    private bool inBetweenRounds = false;
     private bool ticking = false;
     // Update is called once per frame
     void Update()
@@ -132,8 +133,10 @@ public class GameManager : MonoBehaviour
         else if (roundTimer > 5)
         {
             catCooldown = gameParameters.baseCatCooldown / FinalTimeIncrement;
-            for (int i = 0; i < activeBuccaneers; i++)
+            if(activeBuccaneers> 0)
+            {
                 catCooldown *= 0.8f;
+            }
             if (catCooldown < 0.5f)
                 catCooldown = 0.5f;
             FireCat();
@@ -150,8 +153,8 @@ public class GameManager : MonoBehaviour
 
         if (roundTimer > 0)
             roundTimer -= Time.deltaTime;
-        else
-            EndRound();
+        else if(!inBetweenRounds)
+            StartCoroutine(EndRound());
 
         ComputeTimeIncrement();
     }
@@ -166,7 +169,7 @@ public class GameManager : MonoBehaviour
     {
         if (nextCat == null)
         {
-            nextCat = Instantiate(selectedCats[Random.Range(0, selectedCats.Length)].prefab);
+            nextCat = Instantiate(catFactory.SpawnNewCat().prefab);
         }
         nextCat.SetActive(true);
         //GameObject cat = Instantiate(catTypes[Random.Range(0, catTypes.Length)].prefab);
@@ -179,7 +182,7 @@ public class GameManager : MonoBehaviour
         cats.Add(nextCat);
 
         // generate the next cat to be shown on the cannon
-        nextCat = Instantiate(catTypes[Random.Range(0, catTypes.Length)].prefab);
+        nextCat = Instantiate(catFactory.SpawnNewCat().prefab);
         nextCat.SetActive(false);
         nextCat.transform.position = catCannon.transform.position;
         // disable physics on the next cat
@@ -188,34 +191,57 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void EndRound()
+    public IEnumerator EndRound()
     {
+        if (gameOver)
+        {
+            yield break;
+        }
+        inBetweenRounds = true;
         if (OnEndOfRound != null)
         {
             OnEndOfRound();
         }
         AudioManager.instance?.PlaySound("dRUM_SHOT", 1, 1);
+        yield return new WaitForSeconds(gameParameters.inBetweenRoundTime);
+        gameParameters.roundTimer = Mathf.Min(gameParameters.roundTimer+1, gameParameters.maxRoundTimer);
         NewRound();
+        inBetweenRounds = false;
     }
+    private IEnumerator DestroyCats(int catsToDestroy, int delay)
+    {
+        yield return new WaitForSeconds(delay);
+        if (cats.Count < 5)
+        {
+            yield break;
+        }
 
+        for(int i=0; i< catsToDestroy; i++)
+        {
+            int randIndex = Random.Range(0, cats.Count - 1);
+            GameObject catToDestroy = cats[randIndex];
+            cats.RemoveAt(randIndex);
+            Destroy(catToDestroy);
+            AudioManager.instance.PlaySound("pOPPING_nOISE", 1, 1);
+            yield return new WaitForSeconds(0.2f);
+        }
+
+    }
     void NewRound(){
+        player.roundsSurvived = round;
         round++;
         roundTimer = gameParameters.roundTimer;
 
-        // select up to 6 new cats
-        selectedCats = catTypes.OrderBy(x => Random.value).Take(gameParameters.startingCatAmount).ToArray();
+        List<CatType> newCats = catFactory.SetNewRound(round);
 
 
         //score += catsOnPlatform * catMultiplierSum;
         foreach (GameObject cat in cats){
             score += (int)(cat.GetComponent<CatBase>().scoreValue * gameParameters.baseCatDroppedScoreMultiplier);
         }
-        foreach (CatType cats in selectedCats)
+        foreach (CatType cats in newCats)
         {
-            if (SettingsManager.instance.GetCatSeen(cats.catName) == "false"){
-                // display new cat message
-                newRoundCats.AddCat(cats);
-            }
+            newRoundCats.AddCat(cats, SettingsManager.instance.GetCatSeen(cats.catName));
             SettingsManager.instance.SetCatSeen(cats.catName, "true");
         }
         //score += catsOnPlatform * catMultiplierSum;
@@ -225,14 +251,15 @@ public class GameManager : MonoBehaviour
         catometerSlider.UpdateValue(catometer);
 
 
+        StartCoroutine(DestroyCats(Mathf.Min((int)(round*0.7f),10),3));
         ticking = false;
     }
 
     public void SpawnCat(int catType = -1)
     {
         if (catType == -1)
-            catType = Random.Range(0, catTypes.Length);
-        GameObject cat = Instantiate(catTypes[catType].prefab);
+            catType = Random.Range(0,catFactory.catTypes.Count);
+        GameObject cat = Instantiate(catFactory.catTypes[catType].prefab);
         cat.transform.position = new Vector3(4,2,0);
         cat.GetComponent<CatBase>().Activate();
         cats.Add(cat);
@@ -244,6 +271,10 @@ public class GameManager : MonoBehaviour
     }
     public void FallOffScreen(GameObject cat)
     {
+        if (!gameOver)
+        {
+            player.catLost += 1;
+        }
         DamageTower(cat.GetComponent<CatBase>().damage);
     }
 
@@ -259,6 +290,7 @@ public class GameManager : MonoBehaviour
     {
         gameOver = true;
         gameOverScreen.SetActive(true);
+        gameOverScreen.GetComponent<GameOver>().fillEndGameValues();
     }
 
     public void RestartLevel()

@@ -77,6 +77,7 @@ public class CatCannon : MonoBehaviour
     Tween cannonFireTween;
     public void FireCat()
     {
+        GameManager.instance.player.cannonShot += 1;
         AudioManager.instance?.PlaySound("Canon_sound_2", 1, Random.Range(0.95f, 1.05f));
         if (cannonFireTween == null)
         {

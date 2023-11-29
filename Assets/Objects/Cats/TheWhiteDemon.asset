@@ -15,4 +15,4 @@ MonoBehaviour:
   catName: The White Demon
   description: Hates the red devils! Will cause mayhem if next to one another
   prefab: {fileID: 1682211924299110083, guid: 7876d61011d625945a3207f3a65efec0, type: 3}
-  seen: 1
+  rarity: 1

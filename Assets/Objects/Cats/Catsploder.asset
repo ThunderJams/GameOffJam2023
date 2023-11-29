@@ -15,4 +15,4 @@ MonoBehaviour:
   catName: Catsploder
   description: At the end of a round, will make an explosive showdown!
   prefab: {fileID: 4097917929352623923, guid: 7e58dd07eb2b2204bbd49525f353520e, type: 3}
-  seen: 1
+  rarity: 2

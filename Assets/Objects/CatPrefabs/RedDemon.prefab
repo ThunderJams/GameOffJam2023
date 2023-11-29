@@ -340,6 +340,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7474790484669866749}
     - target: {fileID: 7122350459460931663, guid: 80d18e4edb4d59340be0e8c9dcc4cacb, type: 3}
+      propertyPath: catVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7122350459460931663, guid: 80d18e4edb4d59340be0e8c9dcc4cacb, type: 3}
       propertyPath: indicator
       value: 
       objectReference: {fileID: 305227763618888324}

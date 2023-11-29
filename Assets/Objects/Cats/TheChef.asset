@@ -15,4 +15,4 @@ MonoBehaviour:
   catName: The Chef
   description: Periofically drops food for other cats!
   prefab: {fileID: 2308074261881401605, guid: 67d48a39c0023884faa3730976cd1f38, type: 3}
-  seen: 1
+  rarity: 3
