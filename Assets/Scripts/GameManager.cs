@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
             instance = this;
         else
             Destroy(gameObject);
+
     }
 
     void OnDestroy()
@@ -34,15 +35,17 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] GameObject catCannon;
     public CatType[] catTypes;
+    public List<CatType> discoveredCats;
 
     public CatType[] selectedCats;
 
 
-    List<GameObject> cats;
+    List<GameObject> cats = new List<GameObject>();
     [SerializeField] GameObject nextCat = null;
     [SerializeField] GameObject catometerBar;
     [SerializeField] GameObject gameOverScreen;
     [SerializeField] PauseMenu pauseMenu;
+    [SerializeField] NewRoundCats newRoundCats;
 
     // text mesh pro
     [SerializeField] TextMeshProUGUI roundText;
@@ -88,9 +91,10 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         StartGame();
-        cats = new List<GameObject>();
+        
         roundTimer = gameParameters.roundTimer;
     }
+
 
     void StartGame()
     {
@@ -201,12 +205,17 @@ public class GameManager : MonoBehaviour
         // select up to 6 new cats
         selectedCats = catTypes.OrderBy(x => Random.value).Take(gameParameters.startingCatAmount).ToArray();
 
+
         //score += catsOnPlatform * catMultiplierSum;
         foreach (GameObject cat in cats){
             score += (int)(cat.GetComponent<CatBase>().scoreValue * gameParameters.baseCatDroppedScoreMultiplier);
         }
         foreach (CatType cats in selectedCats)
         {
+            if (SettingsManager.instance.GetCatSeen(cats.catName) == "false"){
+                // display new cat message
+                newRoundCats.AddCat(cats);
+            }
             SettingsManager.instance.SetCatSeen(cats.catName, "true");
         }
         //score += catsOnPlatform * catMultiplierSum;
