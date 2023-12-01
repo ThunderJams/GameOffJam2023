@@ -147,6 +147,11 @@ public class CatFactory : MonoBehaviour
     public CatType SpawnNewCat()
     {
         CatType c = selectedCats[UnityEngine.Random.Range(0, selectedCats.Count)];
+        if (SettingsManager.instance.settingsValues.OnlyCommonCats)
+        {
+            c = pickCat(CatRarity.COMMON);
+            return  c;
+        }
         if (nextCatToSpawn != null)
         {
             c = nextCatToSpawn;

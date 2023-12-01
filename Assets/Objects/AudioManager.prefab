@@ -203,10 +203,15 @@ MonoBehaviour:
   - {fileID: 8300000, guid: dd4e1adb5f1c7ce4aafff93e267ed89c, type: 3}
   - {fileID: 8300000, guid: 509e4d56181c3dc478e36dc11684dfa8, type: 3}
   - {fileID: 8300000, guid: bce9a5c5065170a42ab75db5603c53d9, type: 3}
+  - {fileID: 8300000, guid: b35c10a31af997c4ca5a55dbffd31a86, type: 3}
+  - {fileID: 8300000, guid: 61ddd28c1540a234ea79715dee312a4f, type: 3}
+  - {fileID: 8300000, guid: 3257c7fa840490941ba4cabb912bda07, type: 3}
   musicList:
   - {fileID: 8300000, guid: 8163cf4af45b0ed49ac332cf30f2553d, type: 3}
   musicAudioSource: {fileID: 7407687599200984560}
   soundEffectsAudioSource: {fileID: 5205650407769456742}
+  pooledSourcesCount: 10
+  pooledSoundEffectAudioSources: []
 --- !u!1 &7076269830616249458
 GameObject:
   m_ObjectHideFlags: 0

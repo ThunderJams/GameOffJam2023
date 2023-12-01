@@ -8,6 +8,7 @@ public class SettingsManager : MonoBehaviour
 {
     public static SettingsManager instance;
 
+    public SettingsTweaker settingsValues;
     String activeScene;
     public float textScaleMultiplier = 1f;
     // Start is called before the first frame update

@@ -16,6 +16,15 @@ public class SettingsTweaker : MonoBehaviour
     public TMP_FontAsset scalableFont;
 
     public float defaultFontScale = 0.5f;
+
+
+    public bool AllCatsSticky = false;
+    public bool OnlyCommonCats = false;
+    public bool FillCatalogue = false;
+    public bool Invulneraility = false;
+    public bool MuteSound = false;
+    public bool TutorialEnabled = true;
+
     float map(float s, float a1, float a2, float b1, float b2)
     {
         return b1 + (s - a1) * (b2 - b1) / (a2 - a1);
@@ -59,4 +68,40 @@ public class SettingsTweaker : MonoBehaviour
         AudioManager.instance?.PlaySound("Click", 1, 0.5f + s.value / s.maxValue);
         PlayerPrefs.SetFloat("FontScale", SettingsManager.instance.textScaleMultiplier);
     }
+
+
+    public void onAllCatsStickyChanged(bool value)
+    {
+        AllCatsSticky = value;
+    }
+    public void onOnlyCommonCatsChanged(bool value)
+    {
+        OnlyCommonCats = value;
+    }
+    public void onFillCatalogueChanged(bool value)
+    {
+        FillCatalogue = value;
+    }
+    public void onInvulnerailityChanged(bool value)
+    {
+        Invulneraility = value;
+    }
+    public void onMuteSoundChanged(bool value)
+    {
+        MuteSound = value;
+        if (MuteSound)
+        {
+            AudioManager.instance.musicAudioSource.Stop();
+        }
+        else
+        {
+            AudioManager.instance.musicAudioSource.Play();
+        }
+    }
+    public void onTutorialEnabledChanged(bool value)
+    {
+        TutorialEnabled = value;
+    }
+
+
 }

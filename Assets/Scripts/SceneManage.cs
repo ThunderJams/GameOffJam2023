@@ -18,15 +18,17 @@ public class SceneManage : MonoBehaviour
     }
 
     public void OnCreditsButtonClicked(){
-        SceneManager.LoadScene("Credits");
+        ScreenTransition.instance.ChangeScene("Credits");
     }
     
-    public void OnPlayButtonClicked(){
-        SceneManager.LoadScene("Game");
+    public void OnPlayButtonClicked()
+    {
+        ScreenTransition.instance.ChangeScene("Game");
     }
     
-    public void OnTitleButtonClicked(){
-        SceneManager.LoadScene("TitleScreen");
+    public void OnTitleButtonClicked()
+    {
+        ScreenTransition.instance.ChangeScene("TitleScreen");
     }
 
     public void OnSettingsButtonClicked(){

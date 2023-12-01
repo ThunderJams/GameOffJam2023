@@ -52,12 +52,12 @@ public class GameOver : MonoBehaviour
 
     public void onRetryButton()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        ScreenTransition.instance.ChangeScene(SceneManager.GetActiveScene().name);
 
     }
     public void onHomeButton()
     {
-        SceneManager.LoadScene("TitleScreen");
+        ScreenTransition.instance.ChangeScene("TitleScreen");
 
     }
 }

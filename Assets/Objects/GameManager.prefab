@@ -73,6 +73,7 @@ MonoBehaviour:
   selectedCats: []
   differentCatsToSpawn: 0
   fancySpawnedThisRound: 0
+  currentRound: 1
 --- !u!114 &430027321342823278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,5 +99,8 @@ MonoBehaviour:
   scoreText: {fileID: 0}
   timerImage: {fileID: 0}
   gameOver: 0
+  round: 1
+  roundTimer: 0
+  player: {fileID: 0}
   BaseTimeIncrement: 1
   FinalTimeIncrement: 1

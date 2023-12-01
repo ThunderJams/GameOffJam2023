@@ -116,7 +116,7 @@ public class CatalogueGrid : MonoBehaviour
             catImage.sprite = cat.prefab.GetComponent<CatBase>().sprite.sprite;
         catName.text = cat.catName;
         catDescription.text = cat.description;
-        if (SettingsManager.instance.GetCatSeen(cat.catName) == "true")
+        if (SettingsManager.instance.GetCatSeen(cat.catName) == "true" || SettingsManager.instance.settingsValues.FillCatalogue)
         {
             catImage.color = Color.white;
             if(soundCooldown<= 0)

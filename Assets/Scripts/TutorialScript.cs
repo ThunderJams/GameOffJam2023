@@ -47,9 +47,9 @@ public class TutorialScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         tutorialTimer += Time.deltaTime;
 
-        
 
         if (tutorialTimer > 1 && tutorialActivated[0] == false)
         {
@@ -113,6 +113,10 @@ public class TutorialScript : MonoBehaviour
 
     IEnumerator EnableTutorial(int tutorialNumber)
     {
+        if (!SettingsManager.instance.settingsValues.TutorialEnabled)
+        {
+            yield break;
+        }
         canClickOnScreen = false;
         tutorialActivated[tutorialNumber] = true;
         AudioManager.instance.PlaySound(clipsPurfessor[Random.Range(0, clipsPurfessor.Count)].name);
@@ -128,7 +132,7 @@ public class TutorialScript : MonoBehaviour
         gameObject.GetComponentInChildren<TextMeshProUGUI>().text = tutorialText[tutorialNumber];
 
         professorSprite.enabled = true;
-        yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForSecondsRealtime(2f);
         canClickOnScreen = true;
     }
     void DisableTutorial()

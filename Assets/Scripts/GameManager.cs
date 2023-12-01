@@ -174,6 +174,7 @@ public class GameManager : MonoBehaviour
         nextCat.SetActive(true);
         //GameObject cat = Instantiate(catTypes[Random.Range(0, catTypes.Length)].prefab);
 
+
         nextCat.GetComponent<Rigidbody2D>().isKinematic = false;
 
         catCannon.GetComponent<CatCannon>().LoadCat(nextCat, gameParameters.cannonFuseBaseSpeed / FinalTimeIncrement);
@@ -185,6 +186,10 @@ public class GameManager : MonoBehaviour
         nextCat = Instantiate(catFactory.SpawnNewCat().prefab);
         nextCat.SetActive(false);
         nextCat.transform.position = catCannon.transform.position;
+        if (SettingsManager.instance.settingsValues.AllCatsSticky && nextCat.GetComponent<StickyCat>() == null)
+        {
+            nextCat.gameObject.AddComponent<StickyCat>();
+        }
         // disable physics on the next cat
         nextCat.GetComponent<Rigidbody2D>().isKinematic = true;
 
@@ -275,7 +280,11 @@ public class GameManager : MonoBehaviour
         {
             player.catLost += 1;
         }
-        DamageTower(cat.GetComponent<CatBase>().damage);
+        if (!SettingsManager.instance.settingsValues.Invulneraility)
+        {
+            DamageTower(cat.GetComponent<CatBase>().damage);
+
+        }
     }
 
     void DamageTower(float damage)

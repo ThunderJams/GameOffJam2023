@@ -86,7 +86,10 @@ public class AudioManager : MonoBehaviour
     }
     public void PlaySound(string soundName, float volumeScale = 1, float pitch = 1)
     {
-        
+        if (SettingsManager.instance.settingsValues.MuteSound)
+        {
+            return;
+        }
         AudioClip sfx = sfxList.Where((AudioClip x) => x.name.ToUpper() == soundName.ToUpper()).FirstOrDefault();
         if (sfx != null)
         {
@@ -101,6 +104,12 @@ public class AudioManager : MonoBehaviour
     }
     public void PlayMusic(string musicName)
     {
+
+        if (SettingsManager.instance.settingsValues.MuteSound)
+        {
+            return;
+        }
+
         AudioClip music = musicList.Where((AudioClip x) => x.name.ToUpper() == musicName.ToUpper()).First();
         if (music != null)
         {

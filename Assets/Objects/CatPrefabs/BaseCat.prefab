@@ -139,8 +139,8 @@ MonoBehaviour:
   onDish: 0
   scoreValue: 10
   pickedUpSound: {fileID: 0}
-  fallOffSound: {fileID: 0}
   sprite: {fileID: 0}
+  catVolume: 1
   CanRotate: 1
 --- !u!50 &4932147813124258176
 Rigidbody2D:
@@ -156,7 +156,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 0.1
   m_LinearDrag: 0.8
-  m_AngularDrag: 50
+  m_AngularDrag: 10
   m_GravityScale: 0.15
   m_Material: {fileID: 6200000, guid: 2d676343f0fbdbb44b2a8bcdfd52aee7, type: 2}
   m_IncludeLayers:

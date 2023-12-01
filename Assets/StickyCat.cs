@@ -6,11 +6,12 @@ public class StickyCat : MonoBehaviour
 {
 
     private List<FixedJoint2D> joints = new List<FixedJoint2D>();
-    private List<int> connectedInstances = new List<int>(); 
-
+    private List<int> connectedInstances = new List<int>();
+    public int maxConnections = 3;
+    public int currentConnections = 0;
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.tag == "Cat")
+        if (currentConnections <maxConnections &&  collision.collider.tag == "Cat")
         {
             GameObject go = collision.collider.gameObject;
             if (!connectedInstances.Contains(go.GetInstanceID()))
@@ -22,6 +23,7 @@ public class StickyCat : MonoBehaviour
                 GetComponent<CatBase>().CanRotate = false;
                 connectedInstances.Add(go.GetInstanceID());
                 joints.Add(joint);
+                currentConnections += 1;
             }
         }
     }

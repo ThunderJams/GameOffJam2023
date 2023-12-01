@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: TheBouncer
   m_EditorClassIdentifier: 
   catName: The Bouncer
-  description: All cats become bouncy when this cool cat comes in
-  prefab: {fileID: 0}
-  rarity: 3
+  description: This cat can't stay in place and will bounce around everywhere!
+  prefab: {fileID: 2308074261881401605, guid: ba0354fd020cd72428edfa123f0fadce, type: 3}
+  rarity: 2

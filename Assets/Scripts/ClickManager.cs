@@ -65,5 +65,20 @@ public class ClickManager : MonoBehaviour
         {
             Cursor.SetCursor(cursorTexture, cursorHotspot, CursorMode.ForceSoftware);
         }
+
+        // PET THE CAT
+        if (Input.GetMouseButtonDown(0))
+        {
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+
+            if (hit.collider != null)
+            {
+                if (hit.collider.gameObject.CompareTag("CatMenu"))
+                {
+                    hit.collider.gameObject.GetComponent<petTheCats>().PetTheCat();
+                }
+
+            }
+        }
     }
 }

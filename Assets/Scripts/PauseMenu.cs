@@ -21,7 +21,10 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (_paused)
+        {
+            Time.timeScale = 0.0f;
+        }
     }
 
     /// <summary>
@@ -45,6 +48,7 @@ public class PauseMenu : MonoBehaviour
             _initialMenuScale = PausePanel.transform.localScale;
             _initialBackgroundColor = Background.color;
         }
+        _paused = paused;
         AnimatePauseMenu(paused);
     }
 
@@ -92,13 +96,13 @@ public class PauseMenu : MonoBehaviour
     public void RestartButton(){
         Time.timeScale = 1;
         // reload scene
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        ScreenTransition.instance.ChangeScene(SceneManager.GetActiveScene().name);
     }
 
     public void QuitButton(){
         Time.timeScale = 1;
         // load menu scene
-        SceneManager.LoadScene("TitleScreen");
+        ScreenTransition.instance.ChangeScene("TitleScreen");
     }
 
     public void SettingsButton(){

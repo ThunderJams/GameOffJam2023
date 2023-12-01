@@ -25,12 +25,15 @@ public class CatBase : MonoBehaviour
 
 
     public AudioClip pickedUpSound;
-    public AudioClip fallOffSound;
     public SpriteRenderer sprite;
     Tween catPickedUpTween;
     public float catVolume = 1f;
     public bool CanRotate = true;
 
+    private List<string> deathSounds = new List<string>()
+    {
+        "DeathCat1","DeathCat2","DeathCat3"
+    };
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -88,7 +91,7 @@ public class CatBase : MonoBehaviour
 
     void FallOffScreen()
     {
-        AudioManager.instance?.PlaySound(fallOffSound.name.ToString());
+        AudioManager.instance?.PlaySound(deathSounds[Random.Range(0, deathSounds.Count)]);
         GameManager.instance.FallOffScreen(gameObject);
         Destroy(gameObject);
     }
